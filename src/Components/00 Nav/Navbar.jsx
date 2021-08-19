@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { NavbarContainer, NavLinks, NavUL, NavLi, Cart, Menu } from './Styles/Navbar.style.js';
+import { NavbarContainer, Logo, SmallLogo, NavLinks, NavUL, NavLi, Cart, Menu } from './Styles/Navbar.style.js';
 
 const Navbar = () => {
   var [navHeight, setNavHeight] = useState('150px');
   var [linksWidth, setLinksWidth] = useState('60vw');
-  var [navTop, setNavTop] = useState('5px');
   var [showLinks, setShowLinks] = useState(true);
   var [iconTop, setIconTop] = useState('10px');
+  var [navTop, setNavTop] = useState('10px');
+  var [smallLogo, setSmallLogo] = useState(false);
 
   useEffect(() => {
     window.addEventListener('resize', resize);
@@ -18,27 +19,30 @@ const Navbar = () => {
 
     if (width <= 575) {
       setNavHeight('67px');
-      setLinksWidth('90vw');
-      setNavTop('0');
+      setLinksWidth('75vw');
       setShowLinks(false);
       setIconTop('0');
+      setNavTop('0');
+      setSmallLogo(true);
     } else {
       setNavHeight('110px');
-      setLinksWidth('60vw');
-      setNavTop('10px');
+      setLinksWidth('55vw');
       setShowLinks(true);
-      setIconTop('32px');
+      setIconTop('13px');
+      setNavTop('10px');
+      setSmallLogo(false);
     }
   }
 
   return (
     <NavbarContainer height={navHeight}>
+      { !smallLogo ? <Logo src='https://i.imgur.com/eGfbcRj.png' /> : <SmallLogo src='https://i.imgur.com/XJkYHdd.png' /> }
       <NavLinks width={linksWidth} top={navTop}>
         {showLinks ?
         <NavUL>
           <NavLi>Home</NavLi>
           <NavLi>About</NavLi>
-          <NavLi>Order</NavLi>
+          <NavLi>Order Now</NavLi>
         </NavUL>
         : null }
         <Cart top={iconTop} className='fas fa-shopping-cart fa-lg' />

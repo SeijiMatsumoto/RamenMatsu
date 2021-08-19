@@ -9,6 +9,17 @@ export const NavbarContainer = styled.div`
   align-self: center;
   justify-content: center;
   position: relative;
+  flex-direction: row;
+`;
+
+export const Logo = styled.img`
+  width: 180px;
+  object-fit: contain;
+`;
+
+export const SmallLogo = styled.img`
+  width: 90px;
+  object-fit: contain;
 `;
 
 export const NavLinks = styled.div`
@@ -19,14 +30,24 @@ export const NavLinks = styled.div`
   display: flex;
   align-self: center;
   justify-content: flex-end;
+  margin-right: 15px;
 `;
 
+
 export const NavUL = styled.ul`
+  display: inline-flex;
+  flex-wrap: nowrap;
+  position: relative;
+  top: 0;
 `;
 
 export const NavLi = styled.li`
-  display: inline-block;
-  font-size: 18px;
+  position: relative;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
   padding: 15px;
   cursor: pointer;
   color: black;
@@ -34,6 +55,14 @@ export const NavLi = styled.li`
 
   &:hover {
     color: #36465E;
+  }
+
+  &:nth-child(3) {
+    border: 1.5px solid black;
+    border-radius: 25px;
+    height: 40px;
+    width: 120px;
+    top: 0px;
   }
 `;
 
@@ -52,7 +81,7 @@ export const Cart = styled.i`
 
 export const Menu = styled.i`
   position: relative;
-  margin-left: 25px;
+  margin-left: 20px;
   top: ${props => props.top};
   cursor: pointer;
   color: black;

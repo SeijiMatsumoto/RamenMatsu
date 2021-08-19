@@ -4,5 +4,41 @@ export const CarouselContainer = styled.div`
   width: 100%;
   height: 800px;
   object-fit: contain;
-  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: black;
+`;
+
+export const TitleDiv = styled.div`
+  position: absolute;
+  width: ${props => props.width};
+  height: 30%;
+  border-radius: 10px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Title = styled.h1`
+  text-align: center;
+  position: absolute;
+  color: white;
+  font-size: 70px;
+  top: ${props => props.top};
+`;
+
+export const OrderBtn = styled.div`
+  position: absolute;
+  width: 160px;
+  border: 1px solid #36465E;
+  border-radius: 25px;
+  text-align: center;
+  padding: 20px;
+  background-color: #36465E;
+  color: white;
+  top: ${props => props.top};
+  letter-spacing: 1px;
 `;
