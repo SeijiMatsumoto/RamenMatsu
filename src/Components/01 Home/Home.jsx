@@ -4,7 +4,7 @@ import Featured from './Featured.jsx';
 
 const Home = () => {
   return (
-    <div>
+    <div id='home'>
       <Carousel />
       <Featured />
     </div>

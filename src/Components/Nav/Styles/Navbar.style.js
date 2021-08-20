@@ -68,7 +68,7 @@ export const NavLi = styled.li`
   }
 `;
 
-export const Cart = styled.i`
+export const CartButton = styled.i`
   height: 100%;
   position: relative;
   margin-left: 15px;
@@ -81,13 +81,13 @@ export const Cart = styled.i`
   }
 `;
 
-export const Menu = styled.i`
+export const MenuButton = styled.i`
   position: relative;
   margin-left: 20px;
-  top: ${props => props.top};
+  top: 0;
   cursor: pointer;
   color: black;
-
+  z-index: 6;
   &:hover {
     color: #c1c1c1;
   }
