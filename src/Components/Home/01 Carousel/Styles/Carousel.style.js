@@ -41,4 +41,9 @@ export const OrderBtn = styled.div`
   color: white;
   top: ${props => props.top};
   letter-spacing: 1px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #273344;
+  }
 `;

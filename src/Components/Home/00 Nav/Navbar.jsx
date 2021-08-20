@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavbarContainer, Logo, SmallLogo, NavLinks, NavUL, NavLi, Cart, Menu } from './Styles/Navbar.style.js';
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   var [navHeight, setNavHeight] = useState('150px');
@@ -40,9 +41,9 @@ const Navbar = () => {
       <NavLinks width={linksWidth} top={navTop}>
         {showLinks ?
         <NavUL>
-          <NavLi>Home</NavLi>
+          <NavLi><Link to='/'>Home</Link></NavLi>
           <NavLi>About</NavLi>
-          <NavLi>Order Now</NavLi>
+          <NavLi><Link to='/order'>Order Now</Link></NavLi>
         </NavUL>
         : null }
         <Cart top={iconTop} className='fas fa-shopping-cart fa-lg' />

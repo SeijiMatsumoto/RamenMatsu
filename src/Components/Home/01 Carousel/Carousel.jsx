@@ -29,6 +29,7 @@ const Carousel = () => {
     'https://i.imgur.com/GfNgWSx.jpg',
     'https://i.imgur.com/BPvPYtQ.jpg',
     'https://i.imgur.com/CJl5yoo.jpg',
+    'https://i.imgur.com/vBVGJi2.jpg'
   ];
 
   return (
@@ -37,22 +38,24 @@ const Carousel = () => {
         <Title top={titleTop}>RAMEN MATSU</Title>
         <OrderBtn top={btnTop}>ORDER NOW</OrderBtn>
       </TitleDiv>
-      <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+      <div id="carouselIndicators" className="carousel slide" data-ride="carousel">
+        <ol className="carousel-indicators">
+          <li data-target="#carouselIndicators" data-slide-to="0" className="active"></li>
           <li data-target="#carouselIndicators" data-slide-to="1"></li>
           <li data-target="#carouselIndicators" data-slide-to="2"></li>
+          <li data-target="#carouselIndicators" data-slide-to="3"></li>
         </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src={images[0]} alt="First slide" />
+        <div className="carousel-inner">
+          <div className="carousel-item active">
+            <img className="d-block w-100" src={images[0]} alt="First slide" />
           </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src={images[1]} alt="Second slide" />
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src={images[2]} alt="Third slide" />
-          </div>
+          {images.splice(1).map(image => {
+            return (
+              <div className="carousel-item">
+                <img className="d-block w-100" src={image} alt="Second slide" />
+              </div>
+            )
+          })}
         </div>
         {/* <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
