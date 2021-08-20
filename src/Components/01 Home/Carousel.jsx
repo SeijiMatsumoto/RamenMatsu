@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 const Carousel = () => {
   var [titleWidth, setTitleWidth] = useState('500px');
   var [titleTop, setTitleTop] = useState('0');
+  var [carouselTop, setCarouselTop] = useState('110px');
 
   useEffect(() => {
     window.addEventListener('resize', resize);
@@ -17,9 +18,11 @@ const Carousel = () => {
     if (width <= 575) {
       setTitleWidth('70%');
       setTitleTop('-70px');
+      setCarouselTop('67px');
     } else {
       setTitleWidth('650px');
       setTitleTop('0px');
+      setCarouselTop('110px');
     }
   }
 
@@ -31,7 +34,7 @@ const Carousel = () => {
   ];
 
   return (
-    <CarouselContainer>
+    <CarouselContainer top={carouselTop}>
       <TitleDiv width={titleWidth}>
         <Title top={titleTop}>RAMEN MATSU</Title>
         <Link to='/order' id='linkWhite'><OrderBtn >ORDER NOW</OrderBtn></Link>

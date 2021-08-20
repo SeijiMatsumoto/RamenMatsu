@@ -37,7 +37,7 @@ const Navbar = () => {
 
   return (
     <NavbarContainer height={navHeight}>
-      { !smallLogo ? <Logo src='https://i.imgur.com/eGfbcRj.png' /> : <SmallLogo src='https://i.imgur.com/XJkYHdd.png' /> }
+      { !smallLogo ? <Logo src='https://i.imgur.com/eGfbcRj.png'/> : <SmallLogo src='https://i.imgur.com/XJkYHdd.png'/> }
       <NavLinks width={linksWidth} top={navTop}>
         {showLinks ?
         <NavUL>
@@ -46,8 +46,8 @@ const Navbar = () => {
           <NavLi><Link id='link' to='/order'>Order Now</Link></NavLi>
         </NavUL>
         : null }
-        <Cart top={iconTop} className='fas fa-shopping-cart fa-lg' />
-        {!showLinks ? <Menu top={iconTop} className='fas fa-bars fa-lg' /> : null }
+        <Cart top={iconTop} className='fas fa-shopping-cart fa-lg'/>
+        {!showLinks ? <Menu top={iconTop} className='fas fa-bars fa-lg'/> : null }
       </NavLinks>
     </NavbarContainer>
   );

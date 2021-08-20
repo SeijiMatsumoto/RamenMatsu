@@ -8,8 +8,10 @@ export const NavbarContainer = styled.div`
   display: flex;
   align-self: center;
   justify-content: center;
-  position: relative;
+  position: fixed;
   flex-direction: row;
+  z-index: 2;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 `;
 
 export const Logo = styled.img`
@@ -58,7 +60,7 @@ export const NavLi = styled.li`
   }
 
   &:nth-child(3) {
-    border: 1.5px solid black;
+    border: 1px solid black;
     border-radius: 25px;
     height: 40px;
     width: 120px;
@@ -69,7 +71,7 @@ export const NavLi = styled.li`
 export const Cart = styled.i`
   height: 100%;
   position: relative;
-  margin-left: 10px;
+  margin-left: 15px;
   top: ${props => props.top};
   cursor: pointer;
   color: black;

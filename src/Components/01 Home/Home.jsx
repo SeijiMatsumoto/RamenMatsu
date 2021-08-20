@@ -1,9 +1,14 @@
 import React from 'react';
 import Carousel from './Carousel.jsx';
+import Featured from './Featured.jsx';
 
 const Home = () => {
   return (
-    <Carousel />
+    <div>
+      <Carousel />
+      <Featured />
+    </div>
+
   );
 };
 

@@ -9,6 +9,7 @@ export const CarouselContainer = styled.div`
   justify-content: center;
   position: relative;
   background-color: black;
+  top: ${props => props.top};
 `;
 
 export const TitleDiv = styled.div`
