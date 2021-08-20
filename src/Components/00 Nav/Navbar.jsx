@@ -41,9 +41,9 @@ const Navbar = () => {
       <NavLinks width={linksWidth} top={navTop}>
         {showLinks ?
         <NavUL>
-          <NavLi><Link to='/'>Home</Link></NavLi>
+          <NavLi><Link id='link' to='/'>Home</Link></NavLi>
           <NavLi>About</NavLi>
-          <NavLi><Link to='/order'>Order Now</Link></NavLi>
+          <NavLi><Link id='link' to='/order'>Order Now</Link></NavLi>
         </NavUL>
         : null }
         <Cart top={iconTop} className='fas fa-shopping-cart fa-lg' />

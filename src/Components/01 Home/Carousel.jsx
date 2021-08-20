@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { CarouselContainer, TitleDiv, Title, OrderBtn } from './Styles/Carousel.style';
+import { Link } from 'react-router-dom';
 
 const Carousel = () => {
   var [titleWidth, setTitleWidth] = useState('500px');
@@ -36,7 +37,7 @@ const Carousel = () => {
     <CarouselContainer>
       <TitleDiv width={titleWidth}>
         <Title top={titleTop}>RAMEN MATSU</Title>
-        <OrderBtn top={btnTop}>ORDER NOW</OrderBtn>
+        <OrderBtn top={btnTop}><Link to='/order' id='linkWhite'>ORDER NOW</Link></OrderBtn>
       </TitleDiv>
       <div id="carouselIndicators" className="carousel slide" data-ride="carousel">
         <ol className="carousel-indicators">

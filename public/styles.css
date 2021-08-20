@@ -19,11 +19,10 @@ body {
 
 }
 
-.jumbotron {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-self: center;
-  z-index: 1;
-  text-align: center;
+#link {
+  color: black;
+}
+
+#linkWhite {
+  color: white;
 }
