@@ -1,8 +1,7 @@
 import React from 'react';
 import { CartContainer, Top, Title, CloseBtn } from './Styles/Cart.style.js';
 
-const Cart = () => {
-
+const Cart = (props) => {
 
   const closeNav = () => {
     document.getElementById("mySidenav").style.width = "0px";

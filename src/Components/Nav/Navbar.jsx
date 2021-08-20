@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import SideMenu from './SideMenu.jsx';
 import { NavbarContainer, Logo, SmallLogo, NavLinks, NavUL, NavLi, CartButton, MenuButton } from './Styles/Navbar.style.js';
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
   var [navHeight, setNavHeight] = useState('150px');
   var [linksWidth, setLinksWidth] = useState('60vw');
   var [showLinks, setShowLinks] = useState(true);
   var [iconTop, setIconTop] = useState('10px');
   var [navTop, setNavTop] = useState('10px');
   var [smallLogo, setSmallLogo] = useState(false);
-  var [cartWidth, setCartWidth] = useState('400px');
+  var [menuWidth, setMenuWidth] = useState('400px');
 
   useEffect(() => {
     window.addEventListener('resize', resize);
@@ -23,10 +24,10 @@ const Navbar = () => {
       setNavHeight('67px');
       setLinksWidth('75vw');
       setShowLinks(false);
-      setIconTop('3px');
+      setIconTop('0');
       setNavTop('0');
       setSmallLogo(true);
-      setCartWidth('100vw');
+      setMenuWidth('100vw');
     } else {
       setNavHeight('110px');
       setLinksWidth('55vw');
@@ -34,12 +35,16 @@ const Navbar = () => {
       setIconTop('13px');
       setNavTop('10px');
       setSmallLogo(false);
-      setCartWidth('400px');
+      setMenuWidth('400px');
     }
   }
 
   const openNav = () => {
-    document.getElementById("mySidenav").style.width = cartWidth;
+    document.getElementById("mySidenav").style.width = menuWidth;
+  }
+
+  const openMenu = () => {
+    document.getElementById("mySidemenu").style.width = menuWidth;
   }
 
   return (
@@ -54,17 +59,17 @@ const Navbar = () => {
           </NavUL>
           : null}
         <CartButton top={iconTop} onClick={openNav} className='fas fa-shopping-cart fa-lg' />
-        <div class="dropdown dropright">
-          {!showLinks ? <MenuButton className='fas fa-bars fa-lg' type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" /> : null}
-          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <Link className="dropdown-item" id='link' to='/'>Home</Link>
-            <Link className="dropdown-item">About</Link>
-            <Link className="dropdown-item" id='link' to='/order'>Order</Link>
-          </div>
-        </div>
+        {!showLinks ? <MenuButton onClick={openMenu} className='fas fa-bars fa-lg'/> : null}
+        <SideMenu />
       </NavLinks>
     </NavbarContainer>
   );
 };
 
 export default Navbar;
+
+/*
+            <Link className="dropdown-item" id='link' to='/'>Home</Link>
+            <Link className="dropdown-item">About</Link>
+            <Link className="dropdown-item" id='link' to='/order'>Order</Link>
+*/
