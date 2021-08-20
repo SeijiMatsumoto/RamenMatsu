@@ -31,7 +31,7 @@ export const Title = styled.h1`
 `;
 
 export const OrderBtn = styled.div`
-  position: absolute;
+  position: relative;
   width: 160px;
   border: 1px solid #36465E;
   border-radius: 25px;
@@ -39,7 +39,7 @@ export const OrderBtn = styled.div`
   padding: 20px;
   background-color: #36465E;
   color: white;
-  top: ${props => props.top};
+  top: 50px;
   letter-spacing: 1px;
   cursor: pointer;
 

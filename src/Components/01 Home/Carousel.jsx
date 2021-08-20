@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 const Carousel = () => {
   var [titleWidth, setTitleWidth] = useState('500px');
   var [titleTop, setTitleTop] = useState('0');
-  var [btnTop, setBtnTop] = useState('170px');
 
   useEffect(() => {
     window.addEventListener('resize', resize);
@@ -18,11 +17,9 @@ const Carousel = () => {
     if (width <= 575) {
       setTitleWidth('70%');
       setTitleTop('-70px');
-      setBtnTop('150px');
     } else {
       setTitleWidth('650px');
       setTitleTop('0px');
-      setBtnTop('120px');
     }
   }
 
@@ -37,7 +34,7 @@ const Carousel = () => {
     <CarouselContainer>
       <TitleDiv width={titleWidth}>
         <Title top={titleTop}>RAMEN MATSU</Title>
-        <OrderBtn top={btnTop}><Link to='/order' id='linkWhite'>ORDER NOW</Link></OrderBtn>
+        <Link to='/order' id='linkWhite'><OrderBtn >ORDER NOW</OrderBtn></Link>
       </TitleDiv>
       <div id="carouselIndicators" className="carousel slide" data-ride="carousel">
         <ol className="carousel-indicators">

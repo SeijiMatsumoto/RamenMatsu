@@ -54,7 +54,7 @@ export const NavLi = styled.li`
   transition: 0.2s ease-in;
 
   &:hover {
-    color: #36465E;
+    text-decoration: underline;
   }
 
   &:nth-child(3) {
