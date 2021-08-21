@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { HowItsMadeContainer, Title, Description, CardsDiv,
-        CardContainer, ImageDiv, Image, ItemTitle, TextDiv, Text } from './Styles/HowItsMade.style.js'
+import {
+  HowItsMadeContainer, Title, Description, CardsDiv,
+  CardContainer, ImageDiv, Image, ItemTitle, TextDiv, Text,
+  CardsDivMobile, CardContainerMobile, ImageDivMobile, ImageMobile, ItemTitleMobile, TextDivMobile, TextMobile
+} from './Styles/HowItsMade.style.js'
 
 const HowItsMade = () => {
+  var [isMobile, setIsMobile] = useState(false);
   var [descFont, setDescFont] = useState('25px');
-  var [cardWidth, setCardWidth] = useState('550px');
-  var [cardHeight, setCardHeight] = useState('350px');
-  var [textSize, setTextSize] = useState('12px');
 
   useEffect(() => {
     window.addEventListener('resize', resize);
@@ -16,16 +17,12 @@ const HowItsMade = () => {
   const resize = () => {
     var width = window.innerWidth;
 
-    if (width <= 850) {
-      setDescFont('20px');
-      setCardWidth('400px');
-      setCardHeight('250px');
-      setTextSize('11.2px');
+    if (width <= 750) {
+      setDescFont('16px');
+      setIsMobile(true);
     } else {
       setDescFont('25px');
-      setCardWidth('550px');
-      setCardHeight('350px');
-      setTextSize('16px');
+      setIsMobile(false);
     }
   }
 
@@ -60,22 +57,38 @@ const HowItsMade = () => {
   return (
     <HowItsMadeContainer>
       <Title>How It's Made</Title>
-      <Description font={descFont}>Our ramen is forumalted and crafted in-house by Chef Jiro. A bowl of ramen comprises of several factors that all add to its final product</Description>
-      <CardsDiv>
-        {steps.map(step => {
-        return (
-          <CardContainer key={step.image} width={cardWidth} height={cardHeight}>
-            <ImageDiv>
-              <Image src={step.image}/>
-              <ItemTitle>{step.title}</ItemTitle>
-            </ImageDiv>
-            <TextDiv>
-              <Text font={textSize}>{step.description}</Text>
-            </TextDiv>
-          </CardContainer>
-        )
-      })}
-      </CardsDiv>
+      <Description font={descFont}>Our ramen is forumalted and crafted in-house by Chef Jiro. A bowl of ramen comprises of several factors that all add to its final product.</Description>
+      {!isMobile ?
+        <CardsDiv>
+          {steps.map(step => {
+            return (
+              <CardContainer key={step.image}>
+                <ImageDiv>
+                  <Image src={step.image} />
+                  <ItemTitle>{step.title}</ItemTitle>
+                </ImageDiv>
+                <TextDiv>
+                  <Text>{step.description}</Text>
+                </TextDiv>
+              </CardContainer>
+            )
+          })}
+        </CardsDiv> :
+        <CardsDivMobile>
+          {steps.map(step => {
+            return (
+              <CardContainerMobile key={step.image}>
+                <ImageDivMobile>
+                  <ImageMobile src={step.image} />
+                  <ItemTitleMobile>{step.title}</ItemTitleMobile>
+                </ImageDivMobile>
+                <TextDivMobile>
+                  <TextMobile>{step.description}</TextMobile>
+                </TextDivMobile>
+              </CardContainerMobile>
+            )
+          })}
+        </CardsDivMobile>}
     </HowItsMadeContainer>
   );
 };
