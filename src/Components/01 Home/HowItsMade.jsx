@@ -9,6 +9,8 @@ const HowItsMade = () => {
   var [isMobile, setIsMobile] = useState(false);
   var [descFont, setDescFont] = useState('25px');
   var [marginTop, setMarginTop] = useState('200px');
+  var [paddingBottom, setPaddingBottom] = useState('0');
+
 
   useEffect(() => {
     window.addEventListener('resize', resize);
@@ -21,13 +23,16 @@ const HowItsMade = () => {
       setDescFont('18px');
       setMarginTop('245px');
       setIsMobile(true);
+      setPaddingBottom('50px');
     } else if (width <= 750) {
       setDescFont('20px');
       setMarginTop('220px');
       setIsMobile(true);
+      setPaddingBottom('50px');
     } else {
       setDescFont('25px');
       setIsMobile(false);
+      setPaddingBottom('0');
     }
   }
 
@@ -60,7 +65,7 @@ const HowItsMade = () => {
   ]
 
   return (
-    <HowItsMadeContainer>
+    <HowItsMadeContainer bottom={paddingBottom}>
       <Title>How It's Made</Title>
       <Description font={descFont}>The ramen at Ramen Matsu is forumalted and crafted in-house by Chef Jiro. A bowl of ramen comprises of several factors that all add to its final product.</Description>
       {!isMobile ?

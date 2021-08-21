@@ -5,7 +5,6 @@ import { dummyData } from '../../../data/dummyData';
 const Featured = () => {
   var [cardWidth, setCardWidth] = useState('350px');
 
-
   useEffect(() => {
     window.addEventListener('resize', resize);
     resize();

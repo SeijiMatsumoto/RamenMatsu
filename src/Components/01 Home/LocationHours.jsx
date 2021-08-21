@@ -15,7 +15,7 @@ const LocationHours = () => {
 
     if (width <= 400) {
       setCardWidth('85vw');
-      setFontSize('16px');
+      setFontSize('15px');
     } else if (width <= 800) {
       setCardWidth('85vw');
       setFontSize('20px');

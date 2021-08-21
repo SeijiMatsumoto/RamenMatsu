@@ -9,6 +9,7 @@ export const HowItsMadeContainer = styled.div`
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
+  padding-bottom: ${props => props.bottom};
 `;
 
 export const Title = styled.div`
