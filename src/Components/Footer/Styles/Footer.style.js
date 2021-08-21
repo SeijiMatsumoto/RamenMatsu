@@ -8,7 +8,6 @@ export const FooterContainer = styled.div`
   display: flex;
   flex-direction: ${props => props.dir};
   align-items: flex-start;
-  justify-content: space-evenly;
   bottom: 0;
 `;
 
@@ -23,7 +22,7 @@ export const Group = styled.div`
 
 export const Column = styled.div`
   margin: 10px;
-  width: 182px;
+  width: ${props => props.width};
 `;
 
 export const Title = styled.div`

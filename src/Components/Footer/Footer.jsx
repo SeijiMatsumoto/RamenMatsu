@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   var [direction, setDirection] = useState('row');
+  var [width, setWidth] = useState('182px');
 
   useEffect(() => {
     window.addEventListener('resize', resize);
@@ -13,25 +14,28 @@ const Footer = () => {
 
   const resize = () => {
     var width = window.innerWidth;
-
-    if (width <= 650) {
+    if (width <= 516) {
+      setDirection('column');
+      setWidth('85vw');
+    } else if (width <= 650) {
       setDirection('column')
+      setWidth('182px');
     } else {
       setDirection('row');
+      setWidth('182px');
     }
   }
 
   return (
     <FooterContainer dir={direction}>
       <Group>
-        <Column>
+        <Column width={width}>
           <Title>Links</Title>
           <Link id='link' to='/'>Home</Link> <br />
           <Link id='link'>About</Link> <br />
           <Link id='link' to='/order'>Order Now</Link>
         </Column>
-
-        <Column>
+        <Column width={width}>
           <Title>Location</Title>
           207 Closter Dock Road
           <br />
@@ -41,13 +45,13 @@ const Footer = () => {
         </Column>
       </Group>
       <Group>
-        <Column>
+        <Column width={width}>
           <Title>Social Media</Title>
           <a id='link' href='https://www.instagram.com/ramenmatsu_nj/' target='_blank' rel='noreferrer'>Instagram</a> <br />
           <a id='link' href='https://www.facebook.com/ramenmatsunj' target='_blank' rel='noreferrer'>Facebook</a> <br />
           <a id='link' href='http://jirosramen.com' target='_blank' rel='noreferrer'>Chef's Blog</a>
         </Column>
-        <Column>
+        <Column width={width}>
           <Title>Contact</Title>
           <a href='tel:2013839990'>201-383-9990</a><br />
           <a href='email:ramenmatsu@gmail.com'>ramenmatsu@gmail.com</a>
