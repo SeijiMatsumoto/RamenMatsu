@@ -7,8 +7,7 @@ export const HowItsMadeContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   padding-bottom: ${props => props.bottom};
 `;
 
@@ -113,7 +112,7 @@ export const Text = styled.div`
 
 export const CardsDivMobile = styled.div`
   position: relative;
-  width: 85%;
+  width: 90vw;
   margin-top: ${props => props.top};
   display: flex;
   align-items: center;

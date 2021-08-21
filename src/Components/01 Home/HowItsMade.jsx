@@ -19,7 +19,12 @@ const HowItsMade = () => {
 
   const resize = () => {
     var width = window.innerWidth;
-    if(width <= 500) {
+    if (width <= 400) {
+      setDescFont('17px');
+      setMarginTop('245px');
+      setIsMobile(true);
+      setPaddingBottom('50px');
+    } else if(width <= 500) {
       setDescFont('18px');
       setMarginTop('245px');
       setIsMobile(true);

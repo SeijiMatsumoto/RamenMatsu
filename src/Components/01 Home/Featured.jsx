@@ -14,7 +14,7 @@ const Featured = () => {
     var width = window.innerWidth;
 
     if (width <= 500) {
-      setCardWidth('75vw');
+      setCardWidth('80vw');
     } else {
       setCardWidth('350px');
     }
