@@ -8,10 +8,10 @@ const Cart = (props) => {
   }
 
   return (
-    <CartContainer id='mySidenav' class='sidenav'>
+    <CartContainer id='mySidenav' className='sidenav'>
       <Top>
         <Title>Cart</Title>
-        <CloseBtn class="closebtn" onClick={closeNav}>X</CloseBtn>
+        <CloseBtn className="closebtn" onClick={closeNav}>X</CloseBtn>
       </Top>
     </CartContainer>
   );

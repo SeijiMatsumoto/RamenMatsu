@@ -8,7 +8,8 @@ export const NavbarContainer = styled.div`
   display: flex;
   align-self: center;
   justify-content: center;
-  position: fixed;
+  position: -webkit-sticky;
+  position: sticky;
   flex-direction: row;
   z-index: 2;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
@@ -34,7 +35,6 @@ export const NavLinks = styled.div`
   justify-content: flex-end;
   margin-right: 15px;
 `;
-
 
 export const NavUL = styled.ul`
   display: inline-flex;

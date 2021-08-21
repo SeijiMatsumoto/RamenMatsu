@@ -11,7 +11,7 @@ const SideMenu = () => {
     <Side id='mySidemenu'>
       <Top>
         <Title>Ramen Matsu</Title>
-        <CloseBtn class="closebtn" onClick={closeMenu}>X</CloseBtn>
+        <CloseBtn className="closebtn" onClick={closeMenu}>X</CloseBtn>
       </Top>
     </Side>
   );

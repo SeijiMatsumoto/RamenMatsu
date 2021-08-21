@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 const Carousel = () => {
   var [titleWidth, setTitleWidth] = useState('500px');
   var [titleTop, setTitleTop] = useState('0');
-  var [carouselTop, setCarouselTop] = useState('110px');
 
   useEffect(() => {
     window.addEventListener('resize', resize);
@@ -18,23 +17,21 @@ const Carousel = () => {
     if (width <= 575) {
       setTitleWidth('70%');
       setTitleTop('-70px');
-      setCarouselTop('67px');
     } else {
       setTitleWidth('650px');
       setTitleTop('0px');
-      setCarouselTop('110px');
     }
   }
 
   const images = [
     'https://i.imgur.com/GfNgWSx.jpg',
+    'https://i.imgur.com/vBVGJi2.jpg',
     'https://i.imgur.com/BPvPYtQ.jpg',
     'https://i.imgur.com/CJl5yoo.jpg',
-    'https://i.imgur.com/vBVGJi2.jpg'
   ];
 
   return (
-    <CarouselContainer top={carouselTop}>
+    <CarouselContainer>
       <TitleDiv width={titleWidth}>
         <Title top={titleTop}>RAMEN MATSU</Title>
         <Link to='/order' id='linkWhite'><OrderBtn >ORDER NOW</OrderBtn></Link>
@@ -52,20 +49,12 @@ const Carousel = () => {
           </div>
           {images.splice(1).map(image => {
             return (
-              <div className="carousel-item">
+              <div key={image} className="carousel-item">
                 <img className="d-block w-100" src={image} alt="Second slide" />
               </div>
             )
           })}
         </div>
-        {/* <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a> */}
       </div>
     </CarouselContainer>
   );

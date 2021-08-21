@@ -2,21 +2,7 @@ import styled from 'styled-components';
 
 export const FeaturedContainer = styled.div`
   position: relative;
-  top: ${props => props.top};
   width: 100%;
-  /* border: 1px solid black; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-`;
-
-export const FeaturedDiv = styled.div`
-  position: relative;
-  width: 100%;
-  /* border: 1px solid red; */
-  padding: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,6 +15,17 @@ export const Title = styled.div`
   text-align: center;
   font-size: 30px;
   top: 50px;
+`;
+
+export const FeaturedDiv = styled.div`
+  position: relative;
+  width: 100%;
+  padding: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 export const Item = styled.div`

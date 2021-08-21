@@ -3,30 +3,13 @@ import { FeaturedContainer, FeaturedDiv, Title, Item, PicDiv, ItemPic, ItemText,
 import { dummyData } from '../../../data/dummyData';
 
 const Featured = () => {
-  var [divTop, setDivTop] = useState('110px');
-
-  useEffect(() => {
-    window.addEventListener('resize', resize);
-    resize();
-  }, [])
-
-  const resize = () => {
-    var width = window.innerWidth;
-
-    if (width <= 575) {
-      setDivTop('66px');
-    } else {
-      setDivTop('110px');
-    }
-  }
-
   return (
-    <FeaturedContainer top={divTop}>
-        <Title>Featured Menu Items</Title>
+    <FeaturedContainer>
+      <Title>Featured Menu Items</Title>
       <FeaturedDiv>
         {dummyData.map(item => {
           return (
-            <Item>
+            <Item key={item.image}>
               <PicDiv>
                 <ItemPic src={item.image}/>
               </PicDiv>
