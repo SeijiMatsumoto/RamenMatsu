@@ -8,6 +8,7 @@ export const FeaturedContainer = styled.div`
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-bottom: -50px;
 `;
 
 export const Title = styled.div`

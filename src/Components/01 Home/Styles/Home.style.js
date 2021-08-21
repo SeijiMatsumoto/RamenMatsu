@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-export const Main = styled.div`
+export const HomeDiv = styled.div`
   position: relative;
-  padding: 0;
-  margin: 0;
+  min-height: 100%;
 `;

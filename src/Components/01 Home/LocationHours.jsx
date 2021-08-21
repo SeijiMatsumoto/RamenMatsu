@@ -18,7 +18,7 @@ const LocationHours = () => {
       setFontSize('15px');
     } else if (width <= 800) {
       setCardWidth('85vw');
-      setFontSize('20px');
+      setFontSize('16px');
     } else {
       setCardWidth('700px');
       setFontSize('20px');
@@ -29,9 +29,9 @@ const LocationHours = () => {
       <Title>Location and Hours</Title>
       <LocHoursDiv>
         <MapDiv width={cardWidth}>
-          <div className="mapouter">
-            <div className="gmap_canvas">
-              <iframe width="100%" height="360" id="gmap_canvas" src="https://maps.google.com/maps?q=ramen%20matsu&t=&z=15&ie=UTF8&iwloc=&output=embed" frameBorder="0" scrolling="yes" marginHeight="0" marginWidth="0" />
+          <div className='mapouter'>
+            <div className='gmap_canvas'>
+              <iframe title='map' width='100%' height='360' id='gmap_canvas' src='https://maps.google.com/maps?q=ramen%20matsu&t=&z=15&ie=UTF8&iwloc=&output=embed' frameBorder='0' scrolling='yes' marginHeight='0' marginWidth='0' />
             </div>
           </div>
         </MapDiv>
@@ -43,7 +43,10 @@ const LocationHours = () => {
               <br />
               Closter, 07624, NJ
               <br />
-              201-383-9990
+              <a href='tel:2013839990'>201-383-9990</a>
+              <br />
+              <br />
+              <a href='https://www.google.com/maps/place/Ramen+Matsu/@40.9739456,-73.964508,17z/data=!3m1!4b1!4m5!3m4!1s0x89c2efad9d62a7a9:0x8c24d83a9c0490bc!8m2!3d40.9739292!4d-73.9623881' target='_blank' rel='noreferrer'> Open in Maps</a>
             </Address>
           </LocationDiv>
           <HoursDiv>

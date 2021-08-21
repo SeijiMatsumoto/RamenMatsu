@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const HowItsMadeContainer = styled.div`
   position: relative;
   width: 100%;
-  background-color: #556475;
+  background-color: #36465E;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,7 +25,7 @@ export const Description = styled.div`
   top: 50px;
   font-size: ${props => props.font};
   color: white;
-  width: 80%;
+  width: 60%;
   text-align: center;
 `;
 
@@ -44,9 +44,9 @@ export const CardsDiv = styled.div`
 
 export const CardContainer = styled.div`
   position: relative;
-  width: 550px;
+  width: 600px;
   height: 350px;
-  margin: 30px;
+  margin: 40px;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;

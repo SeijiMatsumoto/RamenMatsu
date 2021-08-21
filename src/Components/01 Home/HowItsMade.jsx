@@ -31,11 +31,10 @@ const HowItsMade = () => {
       setPaddingBottom('50px');
     } else if (width <= 700) {
       setDescFont('20px');
-      // setMarginTop('220px');
       setIsMobile(true);
       setPaddingBottom('50px');
     } else {
-      setDescFont('25px');
+      setDescFont('20px');
       setIsMobile(false);
       setPaddingBottom('0');
     }
@@ -45,7 +44,7 @@ const HowItsMade = () => {
     {
       image: 'https://i.imgur.com/0ggL3x2.jpg',
       title: '01. BROTH',
-      description: `The broth consists of flavors from animal bones, vegetables, and fruits. It simmers for hours on end to extract maximum umami straight from the ingredients' cores. Each sip leaves you wanting more.`
+      description: `The broth consists of flavors from chicken and pork, vegetables, and fruits. It simmers for hours on end to extract maximum umami straight from the ingredients' cores. Each sip leaves you wanting more.`
     }, {
       image: 'https://i.imgur.com/hoQjAkX.jpg',
       title: '02. TARE',
@@ -72,7 +71,7 @@ const HowItsMade = () => {
   return (
     <HowItsMadeContainer bottom={paddingBottom}>
       <Title>How It's Made</Title>
-      <Description font={descFont}>The ramen at Ramen Matsu is forumalted and crafted in-house by Chef Jiro. A bowl of ramen comprises of several factors that all add to its final product.</Description>
+      <Description font={descFont}>The ramen at Ramen Matsu is formulated and crafted in-house by Chef Jiro. A bowl of ramen comprises of several factors that all add to its final product.</Description>
       {!isMobile ?
         <CardsDiv>
           {steps.map(step => {

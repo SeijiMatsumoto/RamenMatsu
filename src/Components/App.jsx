@@ -5,6 +5,7 @@ import Home from './01 Home/Home.jsx';
 import Order from './03 Order/Order.jsx';
 import Cart from './Nav/Cart.jsx';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Footer from './Footer/Footer.jsx';
 
 const App = () => {
   var [cartOpen, setCartOpen] = useState(false);
@@ -20,6 +21,7 @@ const App = () => {
           </Switch>
         </div>
         <Cart setCartOpen={setCartOpen}/>
+        <Footer />
       </Main>
     </Router>
   )

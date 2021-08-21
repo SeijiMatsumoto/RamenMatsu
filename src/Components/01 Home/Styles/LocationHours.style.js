@@ -3,12 +3,12 @@ import styled from 'styled-components';
 export const LocHoursContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-bottom: -50px;
 `;
 
 export const LocHoursDiv = styled.div`
@@ -27,9 +27,7 @@ export const MapDiv = styled.div`
   position: relative;
   width: ${props => props.width};
   padding: 20px;
-  height: 400px;
   flex-shrink: 0;
-  margin: 10px;
 `;
 
 export const Title = styled.div`
@@ -44,9 +42,7 @@ export const TextDiv = styled.div`
   position: relative;
   width: ${props => props.width};
   padding: 20px;
-  height: 400px;
   flex-shrink: 0;
-  margin: 10px;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -57,17 +53,23 @@ export const TextDiv = styled.div`
 export const LocationDiv = styled.div`
   position: relative;
   width: 250px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const HoursDiv = styled.div`
   position: relative;
   width: 350px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const SectionTitle = styled.div`
+  position: relative;
   font-size: 25px;
   margin-bottom: 10px;
+  font-weight: 500;
 `;
 
 export const Address = styled.div`
