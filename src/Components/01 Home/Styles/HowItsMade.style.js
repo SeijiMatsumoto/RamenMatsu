@@ -12,16 +12,17 @@ export const HowItsMadeContainer = styled.div`
 `;
 
 export const Title = styled.div`
-  position: absolute;
+  position: relative;
   font-size: 30px;
   top: 50px;
   color: white;
   font-weight: bold;
+  margin: 10px;
 `;
 
 export const Description = styled.div`
-  position: absolute;
-  top: 110px;
+  position: relative;
+  top: 50px;
   font-size: ${props => props.font};
   color: white;
   width: 80%;
@@ -32,7 +33,7 @@ export const CardsDiv = styled.div`
   position: relative;
   width: 100%;
   padding: 100px;
-  margin-top: 100px;
+  margin-top: -50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -113,7 +114,7 @@ export const Text = styled.div`
 export const CardsDivMobile = styled.div`
   position: relative;
   width: 90vw;
-  margin-top: ${props => props.top};
+  margin-top: 70px;
   display: flex;
   align-items: center;
   justify-content: center;

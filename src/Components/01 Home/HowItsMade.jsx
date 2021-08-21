@@ -29,9 +29,9 @@ const HowItsMade = () => {
       setMarginTop('245px');
       setIsMobile(true);
       setPaddingBottom('50px');
-    } else if (width <= 750) {
+    } else if (width <= 700) {
       setDescFont('20px');
-      setMarginTop('220px');
+      // setMarginTop('220px');
       setIsMobile(true);
       setPaddingBottom('50px');
     } else {
