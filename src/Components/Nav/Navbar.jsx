@@ -61,9 +61,13 @@ const Navbar = (props) => {
     document.getElementById("mySidemenu").style.width = menuWidth;
   }
 
+  const goHome = () => {
+    window.open('http://localhost:3002', '_self');
+  }
+
   return (
     <NavbarContainer height={navHeight} position={navPos} id='navbar'>
-      {!smallLogo ? <Logo src='https://i.imgur.com/eGfbcRj.png' /> : <SmallLogo src='https://i.imgur.com/XJkYHdd.png' />}
+      {!smallLogo ? <Logo src='https://i.imgur.com/eGfbcRj.png' onClick={goHome}/>: <SmallLogo src='https://i.imgur.com/XJkYHdd.png' onClick={goHome}/>}
       <NavLinks width={linksWidth} top={navTop}>
         {showLinks ?
           <NavUL>

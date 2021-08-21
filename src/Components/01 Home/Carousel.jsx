@@ -34,7 +34,7 @@ const Carousel = () => {
     <CarouselContainer>
       <TitleDiv width={titleWidth}>
         <Title top={titleTop}>RAMEN MATSU</Title>
-        <Link to='/order' id='linkWhite'><OrderBtn >ORDER NOW</OrderBtn></Link>
+        <Link to='/order' id='linkWhite'><OrderBtn >Order Now</OrderBtn></Link>
       </TitleDiv>
       <div id="carouselIndicators" className="carousel slide" data-ride="carousel">
         <ol className="carousel-indicators">

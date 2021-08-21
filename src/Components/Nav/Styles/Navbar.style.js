@@ -18,11 +18,13 @@ export const NavbarContainer = styled.div`
 export const Logo = styled.img`
   width: 180px;
   object-fit: contain;
+  cursor: pointer;
 `;
 
 export const SmallLogo = styled.img`
   width: 90px;
   object-fit: contain;
+  cursor: pointer;
 `;
 
 export const NavLinks = styled.div`
