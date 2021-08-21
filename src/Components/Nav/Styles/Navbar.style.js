@@ -9,7 +9,7 @@ export const NavbarContainer = styled.div`
   align-self: center;
   justify-content: center;
   position: -webkit-sticky;
-  position: sticky;
+  position: ${props => props.position};
   flex-direction: row;
   z-index: 2;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;

@@ -11,6 +11,7 @@ const Navbar = (props) => {
   var [navTop, setNavTop] = useState('10px');
   var [smallLogo, setSmallLogo] = useState(false);
   var [menuWidth, setMenuWidth] = useState('400px');
+  var [navPos, setNavPos] = useState('sticky');
 
   useEffect(() => {
     window.addEventListener('resize', resize);
@@ -19,6 +20,7 @@ const Navbar = (props) => {
 
   const resize = () => {
     var width = window.innerWidth;
+    var height = window.innerHeight;
 
     if (width <= 575) {
       setNavHeight('67px');
@@ -28,6 +30,7 @@ const Navbar = (props) => {
       setNavTop('0');
       setSmallLogo(true);
       setMenuWidth('100vw');
+      setNavPos('sticky');
     } else {
       setNavHeight('110px');
       setLinksWidth('55vw');
@@ -36,6 +39,17 @@ const Navbar = (props) => {
       setNavTop('10px');
       setSmallLogo(false);
       setMenuWidth('400px');
+      setNavPos('sticky');
+    }
+
+    if (height <= 500) {
+      setNavHeight('67px');
+      setLinksWidth('75vw');
+      setIconTop('0');
+      setNavTop('0');
+      setNavPos('absolute');
+      setShowLinks(false);
+      setMenuWidth('100vw');
     }
   }
 
@@ -48,7 +62,7 @@ const Navbar = (props) => {
   }
 
   return (
-    <NavbarContainer height={navHeight} id='navbar'>
+    <NavbarContainer height={navHeight} position={navPos} id='navbar'>
       {!smallLogo ? <Logo src='https://i.imgur.com/eGfbcRj.png' /> : <SmallLogo src='https://i.imgur.com/XJkYHdd.png' />}
       <NavLinks width={linksWidth} top={navTop}>
         {showLinks ?

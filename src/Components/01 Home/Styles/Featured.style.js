@@ -15,6 +15,7 @@ export const Title = styled.div`
   text-align: center;
   font-size: 30px;
   top: 50px;
+  font-weight: bold;
 `;
 
 export const FeaturedDiv = styled.div`
@@ -36,7 +37,11 @@ export const Item = styled.div`
   border-radius: 10px;
   margin: 30px 30px;
   overflow: hidden;
+  transform: 0.4s ease-in;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  }
 `;
 
 export const PicDiv = styled.div`
@@ -49,17 +54,25 @@ export const PicDiv = styled.div`
 
 export const ItemPic = styled.img`
   object-fit: cover;
-  transition: 0.2s ease-in;
+  transition: 0.4s ease-in;
   height: 250px;
   width: 100%;
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 `;
 
 export const ItemText = styled.div`
   margin: 10px;
   position: relative;
+
+  &:nth-child(0) {
+    font-weight: bold;
+  }
+`;
+
+export const ProductName = styled.span`
+  font-weight: bold;
 `;
 
 export const Price = styled.div`

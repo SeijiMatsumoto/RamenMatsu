@@ -16,6 +16,7 @@ export const Title = styled.div`
   font-size: 30px;
   top: 50px;
   color: white;
+  font-weight: bold;
 `;
 
 export const Description = styled.div`

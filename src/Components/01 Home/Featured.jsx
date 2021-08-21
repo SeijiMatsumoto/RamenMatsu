@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FeaturedContainer, FeaturedDiv, Title, Item, PicDiv, ItemPic, ItemText, Price } from './Styles/Featured.style';
+import { FeaturedContainer, FeaturedDiv, ProductName, Title, Item, PicDiv, ItemPic, ItemText, Price } from './Styles/Featured.style';
 import { dummyData } from '../../../data/dummyData';
 
 const Featured = () => {
@@ -13,6 +13,7 @@ const Featured = () => {
 
   const resize = () => {
     var width = window.innerWidth;
+
     if (width <= 500) {
       setCardWidth('75vw');
     } else {
@@ -31,7 +32,7 @@ const Featured = () => {
                 <ItemPic src={item.image}/>
               </PicDiv>
               <ItemText>
-                {item.name}
+                <ProductName>{item.name}</ProductName>
                 <br/>
                 {item.description}
                 <br/>

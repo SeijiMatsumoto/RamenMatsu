@@ -26,7 +26,7 @@ const Carousel = () => {
   const images = [
     'https://i.imgur.com/GfNgWSx.jpg',
     'https://i.imgur.com/vBVGJi2.jpg',
-    'https://i.imgur.com/BPvPYtQ.jpg',
+    'https://i.imgur.com/FrktrIx.jpg',
     'https://i.imgur.com/CJl5yoo.jpg',
   ];
 
