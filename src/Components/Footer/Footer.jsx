@@ -32,7 +32,7 @@ const Footer = () => {
         <Column width={width}>
           <Title>Links</Title>
           <Link id='link' to='/'>Home</Link> <br />
-          <Link id='link'>About</Link> <br />
+          {/* <Link id='link'>About</Link> <br /> */}
           <Link id='link' to='/order'>Order Now</Link>
         </Column>
         <Column width={width}>

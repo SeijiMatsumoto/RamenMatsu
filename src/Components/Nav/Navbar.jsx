@@ -72,7 +72,7 @@ const Navbar = (props) => {
         {showLinks ?
           <NavUL>
             <NavLi><Link id='link' to='/'>Home</Link></NavLi>
-            <NavLi>About</NavLi>
+            {/* <NavLi>About</NavLi> */}
             <NavLi><Link id='link' to='/order'>Order Now</Link></NavLi>
           </NavUL>
           : null}

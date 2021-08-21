@@ -61,7 +61,7 @@ export const NavLi = styled.li`
     text-decoration: underline;
   }
 
-  &:nth-child(3) {
+  &:nth-child(2) {
     border: 1px solid black;
     border-radius: 25px;
     height: 40px;
