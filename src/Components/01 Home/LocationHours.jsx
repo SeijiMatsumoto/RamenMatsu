@@ -13,7 +13,7 @@ const LocationHours = () => {
   const resize = () => {
     var width = window.innerWidth;
 
-    if (width <= 400) {
+    if (width <= 450) {
       setCardWidth('85vw');
       setFontSize('15px');
     } else if (width <= 800) {
