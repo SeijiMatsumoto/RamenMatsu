@@ -47,6 +47,7 @@ export const CardContainer = styled.div`
   height: 350px;
   margin: 30px;
   overflow: hidden;
+  border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   display: flex;
   flex-wrap: wrap;
@@ -126,6 +127,7 @@ export const CardContainerMobile = styled.div`
   width: 100%;
   margin: 20px 20px;
   overflow: hidden;
+  border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   display: flex;
   flex-wrap: wrap;
