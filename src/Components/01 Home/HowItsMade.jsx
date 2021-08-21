@@ -8,6 +8,7 @@ import {
 const HowItsMade = () => {
   var [isMobile, setIsMobile] = useState(false);
   var [descFont, setDescFont] = useState('25px');
+  var [marginTop, setMarginTop] = useState('200px');
 
   useEffect(() => {
     window.addEventListener('resize', resize);
@@ -16,9 +17,13 @@ const HowItsMade = () => {
 
   const resize = () => {
     var width = window.innerWidth;
-
-    if (width <= 750) {
-      setDescFont('16px');
+    if(width <= 500) {
+      setDescFont('18px');
+      setMarginTop('245px');
+      setIsMobile(true);
+    } else if (width <= 750) {
+      setDescFont('20px');
+      setMarginTop('220px');
       setIsMobile(true);
     } else {
       setDescFont('25px');
@@ -57,7 +62,7 @@ const HowItsMade = () => {
   return (
     <HowItsMadeContainer>
       <Title>How It's Made</Title>
-      <Description font={descFont}>Our ramen is forumalted and crafted in-house by Chef Jiro. A bowl of ramen comprises of several factors that all add to its final product.</Description>
+      <Description font={descFont}>The ramen at Ramen Matsu is forumalted and crafted in-house by Chef Jiro. A bowl of ramen comprises of several factors that all add to its final product.</Description>
       {!isMobile ?
         <CardsDiv>
           {steps.map(step => {
@@ -74,7 +79,7 @@ const HowItsMade = () => {
             )
           })}
         </CardsDiv> :
-        <CardsDivMobile>
+        <CardsDivMobile top={marginTop}>
           {steps.map(step => {
             return (
               <CardContainerMobile key={step.image}>

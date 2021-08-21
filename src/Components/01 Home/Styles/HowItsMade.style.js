@@ -110,8 +110,8 @@ export const Text = styled.div`
 
 export const CardsDivMobile = styled.div`
   position: relative;
-  width: 90%;
-  margin-top: 200px;
+  width: 85%;
+  margin-top: ${props => props.top};
   display: flex;
   align-items: center;
   justify-content: center;

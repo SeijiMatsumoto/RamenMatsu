@@ -32,11 +32,9 @@ export const Item = styled.div`
   position: relative;
   top: 20px;
   flex-shrink: 0;
-  width: 350px;
-  height: 400px;
-  /* border: 2px solid green; */
+  width: ${props => props.width};
   border-radius: 10px;
-  margin: 30px;
+  margin: 30px 30px;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
