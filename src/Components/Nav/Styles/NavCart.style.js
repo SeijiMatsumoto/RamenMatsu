@@ -30,7 +30,7 @@ export const Top = styled.div`
 
 export const CloseBtn = styled.div`
   position: absolute;
-  top: 35px;
+  top: 30px;
   right: 35px;
   font-size: 30px;
   cursor: pointer;
