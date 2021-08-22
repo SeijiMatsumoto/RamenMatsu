@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const MenuItemContainer = styled.div`
   display: flex;
-  width: 450px;
-  height: 175px;
+  width: ${props => props.width};
+  height: ${props => props.height};
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-  margin: 30px;
+  margin: 10px;
   /* overflow: hidden; */
   flex-direction: row;
   align-items: center;
@@ -17,43 +17,49 @@ export const MenuItemContainer = styled.div`
 `;
 
 export const TextDiv = styled.div`
-  width: 275px;
-  height: 175px;
+  position: relative;
+  width: 62.5%;
+  height: 100%;
   padding: 7px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  /* border: 1px solid red; */
 `;
 
 export const Image = styled.img`
-  width: 175px;
+  position: relative;
+  width: 37.5%;
   height: 100%;
   object-fit: cover;
 `;
 
 export const Name = styled.div`
+  position: relative;
   font-weight: bold;
   display: flex;
   flex-direction: column;
-  margin-bottom: -20px;
   width: 100%;
-  /* border: 1px solid red; */
+  font-size: ${props => props.font};
+`;
 
+export const DescPrice = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
 `;
 
 export const Desc = styled.div`
+  position: relative;
   display: flex;
-  font-size: 15px;
+  font-size: ${props => props.font};
   width: 100%;
-  /* border: 1px solid red; */
 
 `;
 
 export const Price = styled.div`
+  position: relative;
   display: flex;
   font-size: 12px;
   width: 100%;
-  /* border: 1px solid red; */
-
+  justify-content: flex-start;
 `;

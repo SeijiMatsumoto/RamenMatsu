@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const TopContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 500px;
+  height: ${props => props.height};
   background-color: #36465E;
   display: flex;
   justify-content: center;
@@ -12,6 +12,6 @@ export const TopContainer = styled.div`
 
 export const Title = styled.div`
   width: 80%;
-  font-size: 100px;
+  font-size: ${props => props.font};
   color: white;
 `;
