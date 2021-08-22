@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { CarouselContainer, TitleDiv, Title, OrderBtn } from './Styles/Carousel.style';
 import { Link } from 'react-router-dom';
+import * as $ from 'jquery';
+import { touchDetect } from '../../touchDetect';
 
 const Carousel = () => {
   var [titleWidth, setTitleWidth] = useState('500px');
@@ -9,6 +11,7 @@ const Carousel = () => {
   useEffect(() => {
     window.addEventListener('resize', resize);
     resize();
+    // touchDetect();
   }, [])
 
   const resize = () => {
@@ -31,12 +34,12 @@ const Carousel = () => {
   ];
 
   return (
-    <CarouselContainer>
+    <CarouselContainer id='carousel'>
       <TitleDiv width={titleWidth}>
         <Title top={titleTop}>RAMEN MATSU</Title>
         <Link to='/order' id='linkWhite'><OrderBtn >Order Now</OrderBtn></Link>
       </TitleDiv>
-      <div id="carouselIndicators" className="carousel slide" data-ride="carousel">
+      <div id="carouselIndicators" className="carousel slide" data-ride="carousel" data-touch="true">
         <ol className="carousel-indicators">
           <li data-target="#carouselIndicators" data-slide-to="0" className="active"></li>
           <li data-target="#carouselIndicators" data-slide-to="1"></li>
@@ -54,6 +57,14 @@ const Carousel = () => {
               </div>
             )
           })}
+          <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
       </div>
     </CarouselContainer>
