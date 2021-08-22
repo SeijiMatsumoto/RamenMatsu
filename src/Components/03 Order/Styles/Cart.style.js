@@ -6,13 +6,11 @@ export const CartContainer = styled.div`
   padding: 15px;
   width: ${props => props.width || '350px'};
   height: ${props => props.height || 'auto'};
-  margin: ${props => props.margin || '0'};
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: flex-start;
   background-color: white;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: ${props => props.shadow || 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'};
 `;
 
 export const Title = styled.div`
@@ -76,10 +74,19 @@ export const Remove = styled.div`
   }
 `;
 
+export const BottomDiv = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
 export const TotalDiv = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  position: relative;
   margin-top: -20px;
   margin-bottom: 30px;
   border-bottom: 1px solid gray;
@@ -150,7 +157,16 @@ export const CustomTip = styled.input`
   width: 75%;
 `;
 
-export const CompleteButton = styled.div`
+export const ButtonDiv = styled.div`
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: flex-end;
+`;
+
+export const CompleteButton = styled.button`
+  position: relative;
   width: 100%;
   height: 40px;
   padding: 5px 5px;

@@ -3,7 +3,7 @@ import { NavCartContainer, Top, CloseBtn, CartDiv } from './Styles/NavCart.style
 import {
   CartContainer, Title,
   CartItem, Image, Column, Column2, ItemName, Quantity, Price, Remove,
-  TotalDiv, Row, TotalLeft, TotalRight, TipContainer, Percentages, Input, Custom, CustomTip, CompleteButton
+  TotalDiv, Row, TotalLeft, TotalRight, TipContainer, Percentages, Input, Custom, CustomTip, ButtonDiv, CompleteButton, BottomDiv
 } from '../03 Order/Styles/Cart.style.js';
 import { cartItems } from '../../../data/cartData.js';
 
@@ -16,7 +16,7 @@ const NavCart = (props) => {
   taxes = taxes.toFixed(2);
 
   var [tip, setTip] = useState(null);
-  var [tipValue, setTipValue] = useState();
+  var [tipValue, setTipValue] = useState('');
   var [selectedTip, setSelectedTip] = useState(null);
 
   useEffect(() => {
@@ -48,7 +48,6 @@ const NavCart = (props) => {
       var total = subTotal * tipValue;
       setTip(total.toFixed(2));
     } else if (selectedTip === 'noTip') {
-      console.log('click2')
       document.getElementById(selectedTip).classList.add('selectedTip');
       document.getElementById('tip1').classList.remove('selectedTip');
       document.getElementById('tip2').classList.remove('selectedTip');
@@ -74,7 +73,6 @@ const NavCart = (props) => {
 
   const selectTip = (e) => {
     var tip = e.target.innerHTML;
-    console.log(' no custom ');
     if (tip === '10%') {
       setSelectedTip('tip1');
       setTipValue(.1);
@@ -87,7 +85,6 @@ const NavCart = (props) => {
     } else if (tip === 'Not now') {
       setSelectedTip('noTip');
       setTipValue(0);
-      console.log('click1')
     }
   }
 
@@ -114,7 +111,7 @@ const NavCart = (props) => {
     <NavCartContainer id='mySidenav' className='sidenav'>
       <CloseBtn className="closebtn" onClick={closeNav}>X</CloseBtn>
       <CartDiv>
-        <CartContainer width={'95%'}>
+        <CartContainer width={'95%'} shadow={'none'} height={'100%'}>
           <Title>Cart</Title>
           {cartItems.map((item, i) => {
             return (
@@ -131,35 +128,39 @@ const NavCart = (props) => {
               </CartItem>
             )
           })}
-          <TotalDiv>
-            <Row>
-              <TotalLeft>Subtotal</TotalLeft>
-              <TotalRight>${subTotal}</TotalRight>
-            </Row>
-            <Row>
-              <TotalLeft>Taxes</TotalLeft>
-              <TotalRight>${taxes}</TotalRight>
-            </Row>
-            <Row>
-              <TotalLeft>Tip</TotalLeft>
-              <TotalRight>${tip}</TotalRight>
-            </Row>
-            <TipContainer>
-              <Percentages>
-                <Input id='tip1' onClick={(e) => selectTip(e)}>10%</Input>
-                <Input id='tip2' onClick={(e) => selectTip(e)}>15%</Input>
-                <Input id='tip3' onClick={(e) => selectTip(e)}>20%</Input>
-                <Input id='noTip' onClick={(e) => selectTip(e)}>Not now</Input>
-              </Percentages>
-              <Custom>
-                <Input id='customButton' onClick={selectCustom}>Custom</Input>
-                <CustomTip type='text' id='custom' onChange={(e) => customTip(e)} placeholder='Enter custom percentage'></CustomTip>
-              </Custom>
-            </TipContainer>
-          </TotalDiv>
-          <CompleteButton>
-            Checkout
-          </CompleteButton>
+          <BottomDiv>
+            <TotalDiv>
+              <Row>
+                <TotalLeft>Subtotal</TotalLeft>
+                <TotalRight>${subTotal}</TotalRight>
+              </Row>
+              <Row>
+                <TotalLeft>Taxes</TotalLeft>
+                <TotalRight>${taxes}</TotalRight>
+              </Row>
+              <Row>
+                <TotalLeft>Tip</TotalLeft>
+                <TotalRight>${tip}</TotalRight>
+              </Row>
+              <TipContainer>
+                <Percentages>
+                  <Input id='tip1' onClick={(e) => selectTip(e)}>10%</Input>
+                  <Input id='tip2' onClick={(e) => selectTip(e)}>15%</Input>
+                  <Input id='tip3' onClick={(e) => selectTip(e)}>20%</Input>
+                  <Input id='noTip' onClick={(e) => selectTip(e)}>Not now</Input>
+                </Percentages>
+                <Custom>
+                  <Input id='customButton' onClick={selectCustom}>Custom</Input>
+                  <CustomTip type='text' id='custom' onChange={(e) => customTip(e)} placeholder='Enter custom percentage'></CustomTip>
+                </Custom>
+              </TipContainer>
+            </TotalDiv>
+            <ButtonDiv>
+              <CompleteButton>
+                Checkout
+              </CompleteButton>
+            </ButtonDiv>
+          </BottomDiv>
         </CartContainer>
       </CartDiv>
     </NavCartContainer>

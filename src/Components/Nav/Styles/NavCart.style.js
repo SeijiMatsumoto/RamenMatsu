@@ -41,6 +41,6 @@ export const CloseBtn = styled.div`
 export const CartDiv = styled.div`
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 98%;
   margin: 10px;
 `;

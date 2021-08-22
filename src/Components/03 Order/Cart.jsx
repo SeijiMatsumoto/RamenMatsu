@@ -16,7 +16,7 @@ const Cart = () => {
   taxes = taxes.toFixed(2);
 
   var [tip, setTip] = useState(null);
-  var [tipValue, setTipValue] = useState();
+  var [tipValue, setTipValue] = useState('');
   var [selectedTip, setSelectedTip] = useState(null);
 
   useEffect(() => {
@@ -48,7 +48,6 @@ const Cart = () => {
       var total = subTotal * tipValue;
       setTip(total.toFixed(2));
     } else if (selectedTip === 'noTip') {
-      console.log('click2')
       document.getElementById(selectedTip).classList.add('selectedTip');
       document.getElementById('tip1').classList.remove('selectedTip');
       document.getElementById('tip2').classList.remove('selectedTip');
@@ -74,7 +73,6 @@ const Cart = () => {
 
   const selectTip = (e) => {
     var tip = e.target.innerHTML;
-    console.log(' no custom ');
     if (tip === '10%') {
       setSelectedTip('tip1');
       setTipValue(.1);
@@ -87,7 +85,6 @@ const Cart = () => {
     } else if (tip === 'Not now') {
       setSelectedTip('noTip');
       setTipValue(0);
-      console.log('click1')
     }
   }
 
