@@ -1,23 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import {
-  CartContainer, Title,
+  CartContainer, Title, NoItems,
   CartItem, Image, Column, Column2, ItemName, Quantity, Price, Remove,
   TotalDiv, Row, TotalLeft, TotalRight, TipContainer, Percentages, Input, Custom, CustomTip, CompleteButton
 } from './Styles/Cart.style';
-import { cartItems } from '../../../data/cartData.js';
+// import { cartItems } from '../../../data/cartData.js';
 
-const Cart = () => {
-
-  var subTotal = 0;
-  cartItems.forEach(item => {
-    subTotal += item.price * item.quantity;
-  })
-  var taxes = subTotal * 0.07;
-  taxes = taxes.toFixed(2);
+const Cart = (props) => {
 
   var [tip, setTip] = useState(null);
   var [tipValue, setTipValue] = useState('');
   var [selectedTip, setSelectedTip] = useState(null);
+  var [data, setData] = useState([]);
+
+  useEffect(() => {
+    if (props.data.length) {
+      setData(props.data);
+    } else {
+      setData([]);
+    }
+  }, [props.data])
+
+  var subTotal = 0;
+  data.forEach(item => {
+    subTotal += item.price * item.quantity;
+  })
+  var taxes = subTotal * 0.07;
+  taxes = taxes.toFixed(2);
 
   useEffect(() => {
     if (selectedTip === 'tip1') {
@@ -67,10 +76,6 @@ const Cart = () => {
     }
   }, [tipValue])
 
-  const removeItem = () => {
-    console.log('Item removed!');
-  }
-
   const selectTip = (e) => {
     var tip = e.target.innerHTML;
     if (tip === '10%') {
@@ -104,28 +109,35 @@ const Cart = () => {
     }
   }
 
+  const removeItem = (index) => {
+    props.setData(prevData => prevData.splice(index, 1));
+  }
+
   return (
     <CartContainer>
       <Title>Cart</Title>
-      {cartItems.map((item, i) => {
-        return (
-          <CartItem key={item.name + i.toString() + item.quantity}>
-            <Image src={item.image}></Image>
-            <Column>
-              <ItemName>{item.name}</ItemName>
-              <Quantity defaultValue={item.quantity}></Quantity>
-            </Column>
-            <Column2>
-              <Price>${item.price * item.quantity}</Price>
-              <Remove onClick={removeItem}>Remove</Remove>
-            </Column2>
-          </CartItem>
-        )
-      })}
+      {!data.length ? <NoItems>No items in cart</NoItems> : null}
+      {
+        data.map((item, i) => {
+          return (
+            <CartItem key={item.name + i.toString() + item.quantity}>
+              <Image src={item.image}></Image>
+              <Column>
+                <ItemName>{item.name}</ItemName>
+                <Quantity defaultValue={item.quantity}></Quantity>
+              </Column>
+              <Column2>
+                <Price>${item.price * item.quantity}</Price>
+                <Remove onClick={() => removeItem(i)}>Remove</Remove>
+              </Column2>
+            </CartItem>
+          )
+        })
+      }
       <TotalDiv>
         <Row>
           <TotalLeft>Subtotal</TotalLeft>
-          <TotalRight>${subTotal}</TotalRight>
+          <TotalRight>${subTotal.toFixed(2)}</TotalRight>
         </Row>
         <Row>
           <TotalLeft>Taxes</TotalLeft>
@@ -133,7 +145,7 @@ const Cart = () => {
         </Row>
         <Row>
           <TotalLeft>Tip</TotalLeft>
-          <TotalRight>${tip}</TotalRight>
+          {tip ? <TotalRight>${tip}</TotalRight> : null}
         </Row>
         <TipContainer>
           <Percentages>

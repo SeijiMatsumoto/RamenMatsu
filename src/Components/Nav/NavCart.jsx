@@ -20,48 +20,48 @@ const NavCart = (props) => {
   var [selectedTip, setSelectedTip] = useState(null);
 
   useEffect(() => {
-    if (selectedTip === 'tip1') {
+    if (selectedTip === 'tip1s') {
       document.getElementById(selectedTip).classList.add('selectedTip');
-      document.getElementById('tip2').classList.remove('selectedTip');
+      document.getElementById('tip2s').classList.remove('selectedTip');
       document.getElementById('tip3').classList.remove('selectedTip');
-      document.getElementById('noTip').classList.remove('selectedTip');
-      document.getElementById('custom').classList.remove('selectedTip');
-      document.getElementById('customButton').classList.remove('selectedTip');
+      document.getElementById('noTips').classList.remove('selectedTip');
+      document.getElementById('customs').classList.remove('selectedTip');
+      document.getElementById('customButtons').classList.remove('selectedTip');
       var total = subTotal * tipValue;
       setTip(total.toFixed(2));
-    } else if (selectedTip === 'tip2') {
+    } else if (selectedTip === 'tip2s') {
       document.getElementById(selectedTip).classList.add('selectedTip');
-      document.getElementById('tip1').classList.remove('selectedTip');
-      document.getElementById('tip3').classList.remove('selectedTip');
-      document.getElementById('noTip').classList.remove('selectedTip');
-      document.getElementById('custom').classList.remove('selectedTip');
-      document.getElementById('customButton').classList.remove('selectedTip');
+      document.getElementById('tip1s').classList.remove('selectedTip');
+      document.getElementById('tip3s').classList.remove('selectedTip');
+      document.getElementById('noTips').classList.remove('selectedTip');
+      document.getElementById('customs').classList.remove('selectedTip');
+      document.getElementById('customButtons').classList.remove('selectedTip');
       var total = subTotal * tipValue;
       setTip(total.toFixed(2));
-    } else if (selectedTip === 'tip3') {
+    } else if (selectedTip === 'tip3s') {
       document.getElementById(selectedTip).classList.add('selectedTip');
-      document.getElementById('tip1').classList.remove('selectedTip');
-      document.getElementById('tip2').classList.remove('selectedTip');
-      document.getElementById('noTip').classList.remove('selectedTip');
-      document.getElementById('custom').classList.remove('selectedTip');
-      document.getElementById('customButton').classList.remove('selectedTip');
+      document.getElementById('tip1s').classList.remove('selectedTip');
+      document.getElementById('tip2s').classList.remove('selectedTip');
+      document.getElementById('noTips').classList.remove('selectedTip');
+      document.getElementById('customs').classList.remove('selectedTip');
+      document.getElementById('customButtons').classList.remove('selectedTip');
       var total = subTotal * tipValue;
       setTip(total.toFixed(2));
-    } else if (selectedTip === 'noTip') {
+    } else if (selectedTip === 'noTips') {
       document.getElementById(selectedTip).classList.add('selectedTip');
-      document.getElementById('tip1').classList.remove('selectedTip');
-      document.getElementById('tip2').classList.remove('selectedTip');
-      document.getElementById('tip3').classList.remove('selectedTip');
-      document.getElementById('custom').classList.remove('selectedTip');
-      document.getElementById('customButton').classList.remove('selectedTip');
+      document.getElementById('tip1s').classList.remove('selectedTip');
+      document.getElementById('tip2s').classList.remove('selectedTip');
+      document.getElementById('tip3s').classList.remove('selectedTip');
+      document.getElementById('customs').classList.remove('selectedTip');
+      document.getElementById('customButtons').classList.remove('selectedTip');
       var total = subTotal * 0;
       setTip(total.toFixed(2));
-    } else if (selectedTip === 'custom') {
-      document.getElementById('customButton').classList.add('selectedTip');
-      document.getElementById('tip1').classList.remove('selectedTip');
-      document.getElementById('tip2').classList.remove('selectedTip');
-      document.getElementById('tip3').classList.remove('selectedTip');
-      document.getElementById('noTip').classList.remove('selectedTip');
+    } else if (selectedTip === 'customs') {
+      document.getElementById('customButtons').classList.add('selectedTip');
+      document.getElementById('tip1s').classList.remove('selectedTip');
+      document.getElementById('tip2s').classList.remove('selectedTip');
+      document.getElementById('tip3s').classList.remove('selectedTip');
+      document.getElementById('noTips').classList.remove('selectedTip');
       var total = subTotal * tipValue;
       setTip(total.toFixed(2));
     }
@@ -74,33 +74,33 @@ const NavCart = (props) => {
   const selectTip = (e) => {
     var tip = e.target.innerHTML;
     if (tip === '10%') {
-      setSelectedTip('tip1');
+      setSelectedTip('tip1s');
       setTipValue(.1);
     } else if (tip === '15%') {
-      setSelectedTip('tip2');
+      setSelectedTip('tip2s');
       setTipValue(.15);
     } else if (tip === '20%') {
-      setSelectedTip('tip3');
+      setSelectedTip('tip3s');
       setTipValue(.20);
     } else if (tip === 'Not now') {
-      setSelectedTip('noTip');
+      setSelectedTip('noTips');
       setTipValue(0);
     }
   }
 
   const selectCustom = () => {
-    setSelectedTip('custom');
+    setSelectedTip('customs');
     setTipValue(null);
-    document.getElementById('custom').focus();
+    document.getElementById('customs').focus();
   }
 
   const customTip = (e) => {
     if (parseInt(e.target.value)) {
       setTipValue(parseInt(e.target.value) / 100)
-      setSelectedTip('custom');
+      setSelectedTip('customs');
     } else {
       setTipValue(0);
-      setSelectedTip('custom');
+      setSelectedTip('customs');
     }
   }
   const closeNav = () => {
@@ -144,14 +144,14 @@ const NavCart = (props) => {
               </Row>
               <TipContainer>
                 <Percentages>
-                  <Input id='tip1' onClick={(e) => selectTip(e)}>10%</Input>
-                  <Input id='tip2' onClick={(e) => selectTip(e)}>15%</Input>
-                  <Input id='tip3' onClick={(e) => selectTip(e)}>20%</Input>
-                  <Input id='noTip' onClick={(e) => selectTip(e)}>Not now</Input>
+                  <Input id='tip1s' onClick={(e) => selectTip(e)}>10%</Input>
+                  <Input id='tip2s' onClick={(e) => selectTip(e)}>15%</Input>
+                  <Input id='tip3s' onClick={(e) => selectTip(e)}>20%</Input>
+                  <Input id='noTips' onClick={(e) => selectTip(e)}>Not now</Input>
                 </Percentages>
                 <Custom>
-                  <Input id='customButton' onClick={selectCustom}>Custom</Input>
-                  <CustomTip type='text' id='custom' onChange={(e) => customTip(e)} placeholder='Enter custom percentage'></CustomTip>
+                  <Input id='customButtons' onClick={selectCustom}>Custom</Input>
+                  <CustomTip type='text' id='customs' onChange={(e) => customTip(e)} placeholder='Enter custom percentage'></CustomTip>
                 </Custom>
               </TipContainer>
             </TotalDiv>

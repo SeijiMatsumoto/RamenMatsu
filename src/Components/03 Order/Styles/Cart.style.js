@@ -25,6 +25,13 @@ export const Title = styled.div`
   text-align: left;
 `;
 
+export const NoItems = styled.div`
+  position: relative;
+  height: 50px;
+  width: 100%;
+  font-size: 15px;
+`;
+
 export const CartItem = styled.div`
   display: flex;
   flex-direction: row;

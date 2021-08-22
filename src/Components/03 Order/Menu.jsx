@@ -3,7 +3,7 @@ import { MenuContainer, Nav, UL, LI, A, Body, Title, RamenDiv, SetsDiv, Beverage
 import MenuItem from './MenuItem.jsx';
 import { ramen, sets, drinks } from '../../../data/menuData.js';
 
-const Menu = () => {
+const Menu = (props) => {
   var [justify, setJustify] = useState('center');
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const Menu = () => {
         <RamenDiv justify={justify}>
           {ramen.map((each, i) => {
             return (
-              <MenuItem key={each.url + i.toString()} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
+              <MenuItem key={each.url + i.toString()} addToCart={props.addToCart} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
             )
           })}
         </RamenDiv>
@@ -46,7 +46,7 @@ const Menu = () => {
         <SetsDiv justify={justify}>
           {sets.map((each, i) => {
             return (
-              <MenuItem key={each.url + i.toString()} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
+              <MenuItem key={each.url + i.toString()} addToCart={props.addToCart} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
             )
           })}
         </SetsDiv>
@@ -55,7 +55,7 @@ const Menu = () => {
         <BeveragesDiv justify={justify}>
           {drinks.map((each, i) => {
             return (
-              <MenuItem key={each.url + i.toString()} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
+              <MenuItem key={each.url + i.toString()} addToCart={props.addToCart} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
             )
           })}
         </BeveragesDiv>

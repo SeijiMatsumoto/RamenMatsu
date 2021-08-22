@@ -7,6 +7,7 @@ const MenuItem = (props) => {
   var price = props.price.toFixed(2);
   var desc = props.desc;
   var image = props.image;
+  var i = props.i;
 
   var [showModal, setShowModal] = useState(false);
   var [itemWidth, setItemWidth] = useState('480px');
@@ -71,6 +72,8 @@ const MenuItem = (props) => {
         desc={desc}
         price={price}
         image={image}
+
+        addToCart={props.addToCart}
       />
     </div>
   );
