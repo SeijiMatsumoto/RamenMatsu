@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { CarouselContainer, TitleDiv, Title, OrderBtn } from './Styles/Carousel.style';
 import { Link } from 'react-router-dom';
-import * as $ from 'jquery';
-import { touchDetect } from '../../touchDetect';
 
 const Carousel = () => {
   var [titleWidth, setTitleWidth] = useState('500px');
