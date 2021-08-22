@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { NavCartContainer, Top, CloseBtn, CartDiv } from './Styles/NavCart.style.js';
 import {
   CartContainer, Title,
   CartItem, Image, Column, Column2, ItemName, Quantity, Price, Remove,
   TotalDiv, Row, TotalLeft, TotalRight, TipContainer, Percentages, Input, Custom, CustomTip, CompleteButton
-} from './Styles/Cart.style';
+} from '../03 Order/Styles/Cart.style.js';
 import { cartItems } from '../../../data/cartData.js';
 
-const Cart = () => {
-
+const NavCart = (props) => {
   var subTotal = 0;
   cartItems.forEach(item => {
     subTotal += item.price * item.quantity;
@@ -106,56 +106,64 @@ const Cart = () => {
       setSelectedTip('custom');
     }
   }
+  const closeNav = () => {
+    document.getElementById("mySidenav").style.width = "0px";
+  }
 
   return (
-    <CartContainer>
-      <Title>Cart</Title>
-      {cartItems.map((item, i) => {
-        return (
-          <CartItem key={item.name + i.toString() + item.quantity}>
-            <Image src={item.image}></Image>
-            <Column>
-              <ItemName>{item.name}</ItemName>
-              <Quantity defaultValue={item.quantity}></Quantity>
-            </Column>
-            <Column2>
-              <Price>${item.price * item.quantity}</Price>
-              <Remove onClick={removeItem}>Remove</Remove>
-            </Column2>
-          </CartItem>
-        )
-      })}
-      <TotalDiv>
-        <Row>
-          <TotalLeft>Subtotal</TotalLeft>
-          <TotalRight>${subTotal}</TotalRight>
-        </Row>
-        <Row>
-          <TotalLeft>Taxes</TotalLeft>
-          <TotalRight>${taxes}</TotalRight>
-        </Row>
-        <Row>
-          <TotalLeft>Tip</TotalLeft>
-          <TotalRight>${tip}</TotalRight>
-        </Row>
-        <TipContainer>
-          <Percentages>
-            <Input id='tip1' onClick={(e) => selectTip(e)}>10%</Input>
-            <Input id='tip2' onClick={(e) => selectTip(e)}>15%</Input>
-            <Input id='tip3' onClick={(e) => selectTip(e)}>20%</Input>
-            <Input id='noTip' onClick={(e) => selectTip(e)}>Not now</Input>
-          </Percentages>
-          <Custom>
-            <Input id='customButton' onClick={selectCustom}>Custom</Input>
-            <CustomTip type='text' id='custom' onChange={(e) => customTip(e)} placeholder='Enter custom percentage'></CustomTip>
-          </Custom>
-        </TipContainer>
-      </TotalDiv>
-      <CompleteButton>
-        Checkout
-      </CompleteButton>
-    </CartContainer>
+    <NavCartContainer id='mySidenav' className='sidenav'>
+      <CloseBtn className="closebtn" onClick={closeNav}>X</CloseBtn>
+      <CartDiv>
+        <CartContainer width={'95%'}>
+          <Title>Cart</Title>
+          {cartItems.map((item, i) => {
+            return (
+              <CartItem key={item.name + i.toString() + item.quantity}>
+                <Image src={item.image}></Image>
+                <Column>
+                  <ItemName>{item.name}</ItemName>
+                  <Quantity defaultValue={item.quantity}></Quantity>
+                </Column>
+                <Column2>
+                  <Price>${item.price * item.quantity}</Price>
+                  <Remove onClick={removeItem}>Remove</Remove>
+                </Column2>
+              </CartItem>
+            )
+          })}
+          <TotalDiv>
+            <Row>
+              <TotalLeft>Subtotal</TotalLeft>
+              <TotalRight>${subTotal}</TotalRight>
+            </Row>
+            <Row>
+              <TotalLeft>Taxes</TotalLeft>
+              <TotalRight>${taxes}</TotalRight>
+            </Row>
+            <Row>
+              <TotalLeft>Tip</TotalLeft>
+              <TotalRight>${tip}</TotalRight>
+            </Row>
+            <TipContainer>
+              <Percentages>
+                <Input id='tip1' onClick={(e) => selectTip(e)}>10%</Input>
+                <Input id='tip2' onClick={(e) => selectTip(e)}>15%</Input>
+                <Input id='tip3' onClick={(e) => selectTip(e)}>20%</Input>
+                <Input id='noTip' onClick={(e) => selectTip(e)}>Not now</Input>
+              </Percentages>
+              <Custom>
+                <Input id='customButton' onClick={selectCustom}>Custom</Input>
+                <CustomTip type='text' id='custom' onChange={(e) => customTip(e)} placeholder='Enter custom percentage'></CustomTip>
+              </Custom>
+            </TipContainer>
+          </TotalDiv>
+          <CompleteButton>
+            Checkout
+          </CompleteButton>
+        </CartContainer>
+      </CartDiv>
+    </NavCartContainer>
   );
 };
 
-export default Cart;
+export default NavCart;

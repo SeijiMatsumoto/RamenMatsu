@@ -3,7 +3,7 @@ import { Main } from './App.style.js'
 import Navbar from './Nav/Navbar.jsx';
 import Home from './01 Home/Home.jsx';
 import Order from './03 Order/Order.jsx';
-import Cart from './Nav/Cart.jsx';
+import NavCart from './Nav/NavCart.jsx';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Footer from './Footer/Footer.jsx';
 
@@ -20,7 +20,7 @@ const App = () => {
             <Route exact path='/order' component={Order} />
           </Switch>
         </div>
-        <Cart setCartOpen={setCartOpen}/>
+        <NavCart setCartOpen={setCartOpen}/>
         <Footer />
       </Main>
     </Router>

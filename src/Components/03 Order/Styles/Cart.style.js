@@ -4,8 +4,9 @@ export const CartContainer = styled.div`
   position: sticky;
   top: 0;
   padding: 15px;
-  width: 350px;
-  /* height: 400px; // temporary */
+  width: ${props => props.width || '350px'};
+  height: ${props => props.height || 'auto'};
+  margin: ${props => props.margin || '0'};
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

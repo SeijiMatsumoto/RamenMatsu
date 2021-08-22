@@ -37,7 +37,7 @@ const Menu = () => {
         <RamenDiv justify={justify}>
           {ramen.map((each, i) => {
             return (
-              <MenuItem key={each.url + i} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
+              <MenuItem key={each.url + i.toString()} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
             )
           })}
         </RamenDiv>
@@ -46,7 +46,7 @@ const Menu = () => {
         <SetsDiv justify={justify}>
           {sets.map((each, i) => {
             return (
-              <MenuItem key={each.url + i} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
+              <MenuItem key={each.url + i.toString()} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
             )
           })}
         </SetsDiv>
@@ -55,7 +55,7 @@ const Menu = () => {
         <BeveragesDiv justify={justify}>
           {drinks.map((each, i) => {
             return (
-              <MenuItem key={each.url + i} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
+              <MenuItem key={each.url + i.toString()} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
             )
           })}
         </BeveragesDiv>

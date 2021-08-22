@@ -5,11 +5,12 @@ export const MenuItemContainer = styled.div`
   width: ${props => props.width};
   height: ${props => props.height};
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-  margin: 10px;
+  margin: ${props => props.margin};
   /* overflow: hidden; */
   flex-direction: row;
   align-items: center;
   transition: 0.15s ease-in;
+  cursor: pointer;
 
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
