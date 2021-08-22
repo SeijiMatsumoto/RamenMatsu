@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MenuItemContainer, TextDiv, Image, Name, DescPrice, Desc, Price } from './Styles/MenuItem.style';
+import Modal from './Modal.jsx';
 
 const MenuItem = (props) => {
   var name = props.name;
@@ -7,6 +8,7 @@ const MenuItem = (props) => {
   var desc = props.desc;
   var image = props.image;
 
+  var [showModal, setShowModal] = useState(false);
   var [itemWidth, setItemWidth] = useState('480px');
   var [itemHeight, setItemHeight] = useState('175px');
   var [descFont, setDescFont] = useState('15px');
@@ -42,8 +44,23 @@ const MenuItem = (props) => {
     }
   }
 
+  useEffect(() => {
+    console.log(showModal);
+  }, [showModal])
+
+  const handleOpenModal = () => {
+    console.log('open')
+    setShowModal(true);
+  }
+
+  const handleCloseModal = () => {
+    console.log('close')
+    setShowModal(false);
+  }
+
   return (
-    <MenuItemContainer width={itemWidth} height={itemHeight} margin={margin}>
+    <div>
+    <MenuItemContainer width={itemWidth} height={itemHeight} margin={margin} onClick={handleOpenModal}>
       <TextDiv>
         <Name font={nameFont}>{name}</Name>
         <DescPrice>
@@ -53,6 +70,15 @@ const MenuItem = (props) => {
       </TextDiv>
       <Image src={image}></Image>
     </MenuItemContainer>
+    <Modal
+      show={showModal}
+      handleCloseModal={handleCloseModal}
+      name={name}
+      desc={desc}
+      price={price}
+      image={image}
+      ></Modal>
+    </div>
   );
 };
 

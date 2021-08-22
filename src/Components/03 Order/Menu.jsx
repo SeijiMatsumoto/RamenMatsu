@@ -59,7 +59,6 @@ const Menu = () => {
             )
           })}
         </BeveragesDiv>
-
       </Body>
     </MenuContainer>
   );
