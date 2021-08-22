@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavCartContainer, Top, CloseBtn, CartDiv } from './Styles/NavCart.style.js';
+import { NavCartContainer, CloseBtn, CartDiv } from './Styles/NavCart.style.js';
 import {
   CartContainer, Title,
   CartItem, Image, Column, Column2, ItemName, Quantity, Price, Remove,
@@ -104,11 +104,11 @@ const NavCart = (props) => {
     }
   }
   const closeNav = () => {
-    document.getElementById("mySidenav").style.width = "0px";
+    props.setShowCart(false);
   }
 
   return (
-    <NavCartContainer id='mySidenav' className='sidenav'>
+    <NavCartContainer id='sideCart' className='sidenav' width={props.width}>
       <CloseBtn className="closebtn" onClick={closeNav}>X</CloseBtn>
       <CartDiv>
         <CartContainer width={'95%'} shadow={'none'} height={'100%'}>

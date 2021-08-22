@@ -44,40 +44,34 @@ const MenuItem = (props) => {
     }
   }
 
-  useEffect(() => {
-    console.log(showModal);
-  }, [showModal])
-
   const handleOpenModal = () => {
-    console.log('open')
     setShowModal(true);
   }
 
   const handleCloseModal = () => {
-    console.log('close')
     setShowModal(false);
   }
 
   return (
     <div>
-    <MenuItemContainer width={itemWidth} height={itemHeight} margin={margin} onClick={handleOpenModal}>
-      <TextDiv>
-        <Name font={nameFont}>{name}</Name>
-        <DescPrice>
-          <Desc font={descFont}>{desc}</Desc>
-          <Price>${price}</Price>
-        </DescPrice>
-      </TextDiv>
-      <Image src={image}></Image>
-    </MenuItemContainer>
-    <Modal
-      show={showModal}
-      handleCloseModal={handleCloseModal}
-      name={name}
-      desc={desc}
-      price={price}
-      image={image}
-      ></Modal>
+      <MenuItemContainer width={itemWidth} height={itemHeight} margin={margin} onClick={handleOpenModal}>
+        <TextDiv>
+          <Name font={nameFont}>{name}</Name>
+          <DescPrice>
+            <Desc font={descFont}>{desc}</Desc>
+            <Price>${price}</Price>
+          </DescPrice>
+        </TextDiv>
+        <Image src={image}></Image>
+      </MenuItemContainer>
+      <Modal
+        show={showModal}
+        handleCloseModal={handleCloseModal}
+        name={name}
+        desc={desc}
+        price={price}
+        image={image}
+      />
     </div>
   );
 };

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import SideMenu from './SideMenu.jsx';
+import NavCart from './NavCart.jsx';
 import { NavbarContainer, Logo, SmallLogo, NavLinks, NavUL, NavLi, CartButton, MenuButton } from './Styles/Navbar.style.js';
 import { Link } from "react-router-dom";
+import anime from 'animejs/lib/anime.es.js';
 
 const Navbar = (props) => {
   var [navHeight, setNavHeight] = useState('150px');
@@ -11,6 +13,8 @@ const Navbar = (props) => {
   var [navTop, setNavTop] = useState('10px');
   var [smallLogo, setSmallLogo] = useState(false);
   var [menuWidth, setMenuWidth] = useState('400px');
+  var [showCart, setShowCart] = useState(false);
+  var [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
     window.addEventListener('resize', resize);
@@ -50,12 +54,50 @@ const Navbar = (props) => {
   }
 
   const openNav = () => {
-    document.getElementById("mySidenav").style.width = menuWidth;
+    setShowCart(true);
   }
 
   const openMenu = () => {
-    document.getElementById("mySidemenu").style.width = menuWidth;
+    setShowMenu(true);
   }
+
+  useEffect(() => {
+    var menu = document.querySelector('#sideCart');
+    if (showCart) {
+      anime({
+        targets: menu,
+        translateY: '-100vh',
+        easing: 'linear',
+        duration: 200
+      });
+    } else if (!showCart) {
+      anime({
+        targets: menu,
+        translateY: 0,
+        easing: 'linear',
+        duration: 200
+      });
+    }
+  }, [showCart])
+
+  useEffect(() => {
+    var menu = document.querySelector('#mySidemenu');
+    if (showMenu) {
+      anime({
+        targets: menu,
+        translateX: '-100vw',
+        easing: 'linear',
+        duration: 200
+      });
+    } else if (!showMenu) {
+      anime({
+        targets: menu,
+        translateX: 0,
+        easing: 'linear',
+        duration: 200
+      });
+    }
+  }, [showMenu])
 
   const goHome = () => {
     window.open('http://localhost:3002', '_self');
@@ -73,17 +115,12 @@ const Navbar = (props) => {
           </NavUL>
           : null}
         <CartButton top={iconTop} onClick={openNav} className='fas fa-shopping-cart fa-lg' />
+        <NavCart width={menuWidth} setShowCart={setShowCart}/>
         {!showLinks ? <MenuButton onClick={openMenu} className='fas fa-bars fa-lg'/> : null}
-        <SideMenu />
+        <SideMenu setShowMenu={setShowMenu}/>
       </NavLinks>
     </NavbarContainer>
   );
 };
 
 export default Navbar;
-
-/*
-            <Link className="dropdown-item" id='link' to='/'>Home</Link>
-            <Link className="dropdown-item">About</Link>
-            <Link className="dropdown-item" id='link' to='/order'>Order</Link>
-*/

@@ -4,10 +4,12 @@ import { dummyData } from '../../../data/featuredData.js';
 
 const Featured = () => {
   var [cardWidth, setCardWidth] = useState('350px');
+  var [data, setData] = useState([])
 
   useEffect(() => {
     window.addEventListener('resize', resize);
     resize();
+    setData(dummyData);
   }, [])
 
   const resize = () => {
@@ -24,7 +26,7 @@ const Featured = () => {
     <FeaturedContainer>
       <Title>Featured Menu Items</Title>
       <FeaturedDiv>
-        {dummyData.map(item => {
+        {data.map(item => {
           return (
             <Item key={item.image} width={cardWidth}>
               <PicDiv>

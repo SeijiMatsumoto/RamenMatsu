@@ -10,6 +10,7 @@ export const CartContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   background-color: white;
+  justify-content: center;
   box-shadow: ${props => props.shadow || 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'};
 `;
 
@@ -21,6 +22,7 @@ export const Title = styled.div`
   border-bottom: 1px solid black;
   font-size: 25px;
   margin-bottom: 20px;
+  text-align: left;
 `;
 
 export const CartItem = styled.div`
@@ -45,6 +47,7 @@ export const Column = styled.div`
   margin-left: 15px;
   width: 140px;
   justify-content: space-between;
+  align-items: flex-start;
 `;
 
 export const Column2 = styled.div`

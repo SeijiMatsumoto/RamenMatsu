@@ -1,18 +1,23 @@
 import React from 'react';
-import { Side, Top, Title, CloseBtn } from './Styles/SideMenu.style';
+import { Side, CloseBtn, NavLinks, NavUL, NavLi } from './Styles/SideMenu.style';
+import { Link } from 'react-router-dom';
 
-const SideMenu = () => {
+const SideMenu = (props) => {
 
   const closeMenu = () => {
-    document.getElementById("mySidemenu").style.width = "0px";
+    props.setShowMenu(false);
   }
 
   return (
     <Side id='mySidemenu'>
-      <Top>
-        <Title>Ramen Matsu</Title>
-        <CloseBtn className="closebtn" onClick={closeMenu}>X</CloseBtn>
-      </Top>
+      <CloseBtn className="closebtn" onClick={closeMenu}>X</CloseBtn>
+      <NavLinks>
+        <NavUL>
+          <NavLi><Link id='link' to='/' onClick={closeMenu}>Home</Link></NavLi>
+          {/* <NavLi>About</NavLi> */}
+          <NavLi><Link id='link' to='/order' onClick={closeMenu}>Order Now</Link></NavLi>
+        </NavUL>
+      </NavLinks>
     </Side>
   );
 };
