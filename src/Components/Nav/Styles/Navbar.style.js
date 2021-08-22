@@ -8,8 +8,7 @@ export const NavbarContainer = styled.div`
   display: flex;
   align-self: center;
   justify-content: center;
-  position: -webkit-sticky;
-  position: ${props => props.position};
+  position: relative;
   flex-direction: row;
   z-index: 2;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;

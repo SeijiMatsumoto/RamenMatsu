@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FeaturedContainer, FeaturedDiv, ProductName, Title, Item, PicDiv, ItemPic, ItemText, Price } from './Styles/Featured.style';
-import { dummyData } from '../../../data/dummyData';
+import { dummyData } from '../../../data/featuredData.js';
 
 const Featured = () => {
   var [cardWidth, setCardWidth] = useState('350px');
@@ -36,7 +36,7 @@ const Featured = () => {
                 {item.description}
                 <br/>
               </ItemText>
-              <Price>{item.price}</Price>
+              <Price>${item.price}</Price>
             </Item>
           )
         })}

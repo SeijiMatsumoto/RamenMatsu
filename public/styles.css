@@ -3,6 +3,7 @@ html, body {
   padding: 0;
   font-family: "Ubuntu", sans-serif;
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 .carousel {
@@ -21,9 +22,13 @@ html, body {
   overflow: hidden;
   object-fit: cover;
   opacity: 0.7;
-
 }
 
 #link {
   color: black;
+}
+
+.selectedTip {
+  color: white;
+  background-color: #323B43;
 }
