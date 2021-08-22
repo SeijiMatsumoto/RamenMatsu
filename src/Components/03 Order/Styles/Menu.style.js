@@ -3,26 +3,28 @@ import styled from 'styled-components';
 export const MenuContainer = styled.div`
   position: relative;
   margin: 0;
-  width: 77%;
-  height: 100%; // temporary
+  width: 1100px;
+  /* height: 100%; // temporary */
   display: flex;
   flex-direction: column;
-  background-color: green;
+  background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;
 
 export const Nav = styled.div`
   position: relative;
   width: 100%;
   height: 70px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   align-items: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;
 
 export const UL = styled.ul`
   position: relative;
   display: inline-flex;
-  color: white;
+  color: black;
   top: 5px;
 `;
 
@@ -37,9 +39,9 @@ export const LI = styled.li`
 `;
 
 export const A = styled.a`
-  color: white;
+  color: black;
   &:hover {
-    color: white;
+    color: black;
   }
 `;
 
@@ -52,30 +54,39 @@ export const Body = styled.div`
 
 export const Title = styled.div`
   font-size: 30px;
-  color: white;
+  color: black;
 `;
 
 export const RamenDiv = styled.div`
   position: relative;
   display: flex;
   width: 100%;
-  height: 400px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-bottom: 2px solid black;
+  padding-bottom: 30px;
+  justify-content: ${props => props.justify};
 `;
 
 export const SetsDiv = styled.div`
   position: relative;
   display: flex;
   width: 100%;
-  height: 400px;
   padding-top: 20px;
-  border-top: 1px solid black;
+  border-bottom: 2px solid black;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-bottom: 30px;
+  justify-content: ${props => props.justify};
 `;
 
 export const BeveragesDiv = styled.div`
   position: relative;
   display: flex;
   width: 100%;
-  height: 400px;
   padding-top: 20px;
-  border-top: 1px solid black;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-bottom: 30px;
+  justify-content: ${props => props.justify};
 `;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   CartContainer, Title,
   CartItem, Image, Column, Column2, ItemName, Quantity, Price, Remove,
-  TotalDiv, Row, TotalLeft, TotalRight, TipContainer, Percentages, Input, Custom
+  TotalDiv, Row, TotalLeft, TotalRight, TipContainer, Percentages, Input, Custom, CustomTip, CompleteButton
 } from './Styles/Cart.style';
 import { cartItems } from '../../../data/cartData.js';
 
@@ -10,12 +10,13 @@ const Cart = () => {
 
   var subTotal = 0;
   cartItems.forEach(item => {
-    subTotal += item.price;
+    subTotal += item.price * item.quantity;
   })
   var taxes = subTotal * 0.07;
   taxes = taxes.toFixed(2);
 
-  var [tip, setTip] = useState(0.00);
+  var [tip, setTip] = useState(null);
+  var [tipValue, setTipValue] = useState();
   var [selectedTip, setSelectedTip] = useState(null);
 
   useEffect(() => {
@@ -24,32 +25,48 @@ const Cart = () => {
       document.getElementById('tip2').classList.remove('selectedTip');
       document.getElementById('tip3').classList.remove('selectedTip');
       document.getElementById('noTip').classList.remove('selectedTip');
-      var total = subTotal * .10;
+      document.getElementById('custom').classList.remove('selectedTip');
+      document.getElementById('customButton').classList.remove('selectedTip');
+      var total = subTotal * tipValue;
       setTip(total.toFixed(2));
     } else if (selectedTip === 'tip2') {
       document.getElementById(selectedTip).classList.add('selectedTip');
       document.getElementById('tip1').classList.remove('selectedTip');
       document.getElementById('tip3').classList.remove('selectedTip');
       document.getElementById('noTip').classList.remove('selectedTip');
-      var total = subTotal * .15;
+      document.getElementById('custom').classList.remove('selectedTip');
+      document.getElementById('customButton').classList.remove('selectedTip');
+      var total = subTotal * tipValue;
       setTip(total.toFixed(2));
     } else if (selectedTip === 'tip3') {
       document.getElementById(selectedTip).classList.add('selectedTip');
       document.getElementById('tip1').classList.remove('selectedTip');
       document.getElementById('tip2').classList.remove('selectedTip');
       document.getElementById('noTip').classList.remove('selectedTip');
-      var total = subTotal * .20;
+      document.getElementById('custom').classList.remove('selectedTip');
+      document.getElementById('customButton').classList.remove('selectedTip');
+      var total = subTotal * tipValue;
       setTip(total.toFixed(2));
     } else if (selectedTip === 'noTip') {
+      console.log('click2')
       document.getElementById(selectedTip).classList.add('selectedTip');
       document.getElementById('tip1').classList.remove('selectedTip');
       document.getElementById('tip2').classList.remove('selectedTip');
       document.getElementById('tip3').classList.remove('selectedTip');
+      document.getElementById('custom').classList.remove('selectedTip');
+      document.getElementById('customButton').classList.remove('selectedTip');
       var total = subTotal * 0;
-      setTip(total);
+      setTip(total.toFixed(2));
+    } else if (selectedTip === 'custom') {
+      document.getElementById('customButton').classList.add('selectedTip');
+      document.getElementById('tip1').classList.remove('selectedTip');
+      document.getElementById('tip2').classList.remove('selectedTip');
+      document.getElementById('tip3').classList.remove('selectedTip');
+      document.getElementById('noTip').classList.remove('selectedTip');
+      var total = subTotal * tipValue;
+      setTip(total.toFixed(2));
     }
-
-  }, [selectedTip])
+  }, [tipValue])
 
   const removeItem = () => {
     console.log('Item removed!');
@@ -57,14 +74,36 @@ const Cart = () => {
 
   const selectTip = (e) => {
     var tip = e.target.innerHTML;
+    console.log(' no custom ');
     if (tip === '10%') {
       setSelectedTip('tip1');
+      setTipValue(.1);
     } else if (tip === '15%') {
       setSelectedTip('tip2');
+      setTipValue(.15);
     } else if (tip === '20%') {
       setSelectedTip('tip3');
+      setTipValue(.20);
     } else if (tip === 'Not now') {
       setSelectedTip('noTip');
+      setTipValue(0);
+      console.log('click1')
+    }
+  }
+
+  const selectCustom = () => {
+    setSelectedTip('custom');
+    setTipValue(null);
+    document.getElementById('custom').focus();
+  }
+
+  const customTip = (e) => {
+    if (parseInt(e.target.value)) {
+      setTipValue(parseInt(e.target.value) / 100)
+      setSelectedTip('custom');
+    } else {
+      setTipValue(0);
+      setSelectedTip('custom');
     }
   }
 
@@ -80,7 +119,7 @@ const Cart = () => {
               <Quantity value={item.quantity}></Quantity>
             </Column>
             <Column2>
-              <Price>${item.price}</Price>
+              <Price>${item.price * item.quantity}</Price>
               <Remove onClick={removeItem}>Remove</Remove>
             </Column2>
           </CartItem>
@@ -106,9 +145,15 @@ const Cart = () => {
             <Input id='tip3' onClick={(e) => selectTip(e)}>20%</Input>
             <Input id='noTip' onClick={(e) => selectTip(e)}>Not now</Input>
           </Percentages>
-          <Custom></Custom>
+          <Custom>
+            <Input id='customButton' onClick={selectCustom}>Custom</Input>
+            <CustomTip type='text' id='custom' onChange={(e) => customTip(e)} placeholder='Enter custom percentage'></CustomTip>
+          </Custom>
         </TipContainer>
       </TotalDiv>
+      <CompleteButton>
+        Checkout
+      </CompleteButton>
     </CartContainer>
   );
 };

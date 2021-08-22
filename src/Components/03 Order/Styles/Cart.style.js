@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 
 export const CartContainer = styled.div`
-  position: relative;
+  position: sticky;
   top: 0;
   padding: 15px;
-  width: 23%;
+  width: 350px;
   /* height: 400px; // temporary */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: yellow;
+  background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;
 
 export const Title = styled.div`
@@ -45,7 +46,6 @@ export const Column = styled.div`
   margin-left: 15px;
   width: 140px;
   justify-content: space-between;
-
 `;
 
 export const Column2 = styled.div`
@@ -56,13 +56,13 @@ export const Column2 = styled.div`
   justify-content: space-between;
 `;
 
-
 export const ItemName = styled.div`
 `;
 
 export const Quantity = styled.input`
   width: 50px;
   border-radius: 5px;
+  border: 1px solid black;
 `;
 
 export const Price = styled.div`
@@ -79,6 +79,9 @@ export const TotalDiv = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-top: -20px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid gray;
 `;
 
 export const Row = styled.div`
@@ -102,15 +105,15 @@ export const TipContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  top: 5px;
+  top: 10px;
 `;
 
 export const Percentages = styled.div`
   display: inline-flex;
   position: relative;
-  width: 95%;
+  width: 100%;
   height: 50px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 5px;
   margin-bottom: 15px;
   background-color: #F2F2F2;
@@ -121,18 +124,40 @@ export const Input = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-right: 1px solid black;
+  /* border-right: 1px solid black; */
   width: 25%;
+  overflow: hidden;
   cursor: pointer;
   &:hover {
-
+    background-color: #dbdbdb;
   };
 `;
 
 export const Custom = styled.div`
   position: relative;
-  width: 95%;
+  display: inline-flex;
+  width: 100%;
   height: 50px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 5px;
+  background-color: #F2F2F2;
+  overflow: hidden;
+`;
+
+export const CustomTip = styled.input`
+  position: relative;
+  width: 75%;
+`;
+
+export const CompleteButton = styled.div`
+  width: 100%;
+  height: 40px;
+  padding: 5px 5px;
+  border-radius: 25px;
+  background-color: #5E6C7C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
 `;

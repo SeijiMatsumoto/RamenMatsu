@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { MenuContainer, Nav, UL, LI, A, Body, Title, RamenDiv, SetsDiv, BeveragesDiv } from './Styles/Menu.style';
+import MenuItem from './MenuItem.jsx';
+import { ramen, sets, drinks } from '../../../data/menuData.js';
 
 const Menu = () => {
+  var [justify, setJustify] = useState('center');
+
+  useEffect(() => {
+    window.addEventListener('resize', resize);
+    resize();
+  }, [])
+
+  const resize = () => {
+    var width = window.innerWidth;
+
+    if (width <= 1654) {
+      setJustify('center');
+    } else {
+      setJustify('flex-start');
+
+    }
+  }
+
   return (
     <MenuContainer>
       <Nav>
@@ -12,15 +32,34 @@ const Menu = () => {
         </UL>
       </Nav>
       <Body>
-        <RamenDiv id='ramen'>
-          <Title>Ramen</Title>
+
+        <Title id='ramen'>Ramen</Title>
+        <RamenDiv justify={justify}>
+          {ramen.map((each, i) => {
+            return (
+              <MenuItem key={each.url + i} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
+            )
+          })}
         </RamenDiv>
-        <SetsDiv id='sets'>
-          <Title>Sets</Title>
+
+        <Title id='sets'>Sets</Title>
+        <SetsDiv justify={justify}>
+          {sets.map((each, i) => {
+            return (
+              <MenuItem key={each.url + i} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
+            )
+          })}
         </SetsDiv>
-        <BeveragesDiv id='beverages'>
-          <Title>Beverages</Title>
+
+        <Title id='beverages'>Beverages</Title>
+        <BeveragesDiv justify={justify}>
+          {drinks.map((each, i) => {
+            return (
+              <MenuItem key={each.url + i} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
+            )
+          })}
         </BeveragesDiv>
+
       </Body>
     </MenuContainer>
   );
