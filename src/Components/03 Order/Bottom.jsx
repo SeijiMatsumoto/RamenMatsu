@@ -13,11 +13,17 @@ const Bottom = () => {
   }, [])
 
   const addToCart = (item) => {
-    setData(oldData => [...oldData, item]);
+    setData(prevData => [...prevData, item]);
+  }
+
+  const removeFromCart = (index) => {
+    console.log('Previous:', data);
+    console.log('Index:', index);
+    setData(data.filter(item => item.indexOf === index));
   }
 
   useEffect(() => {
-    console.log(data);
+    console.log('Data changed:', data);
   }, [data])
 
   const resize = () => {
@@ -35,7 +41,7 @@ const Bottom = () => {
   return (
     <BottomContainer width={bottomWidth}>
       <Menu addToCart={addToCart}></Menu>
-      {showCart ? <Cart data={data} setData={setData}></Cart> : null}
+      {showCart ? <Cart data={data} setData={setData} removeFromCart={removeFromCart}></Cart> : null}
     </BottomContainer>
   );
 };

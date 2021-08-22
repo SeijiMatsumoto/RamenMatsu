@@ -12,21 +12,26 @@ const Cart = (props) => {
   var [tipValue, setTipValue] = useState('');
   var [selectedTip, setSelectedTip] = useState(null);
   var [data, setData] = useState([]);
+  var [subTotal, setTotal] = useState(0);
+  var [taxes, setTaxes] = useState(0);
 
   useEffect(() => {
     if (props.data.length) {
-      setData(props.data);
+      setData(props.data)
     } else {
       setData([]);
     }
   }, [props.data])
 
-  var subTotal = 0;
-  data.forEach(item => {
-    subTotal += item.price * item.quantity;
-  })
-  var taxes = subTotal * 0.07;
-  taxes = taxes.toFixed(2);
+  useEffect(() => {
+    var total = 0;
+    setTotal(0);
+    data.forEach(item => {
+      setTotal(prevValue => prevValue += item.price * item.quantity);
+    })
+    var tax = total * 0.07;
+    setTaxes(tax.toFixed(2));
+  }, [data])
 
   useEffect(() => {
     if (selectedTip === 'tip1') {
@@ -109,31 +114,25 @@ const Cart = (props) => {
     }
   }
 
-  const removeItem = (index) => {
-    props.setData(prevData => prevData.splice(index, 1));
-  }
-
   return (
     <CartContainer>
       <Title>Cart</Title>
       {!data.length ? <NoItems>No items in cart</NoItems> : null}
-      {
-        data.map((item, i) => {
-          return (
-            <CartItem key={item.name + i.toString() + item.quantity}>
-              <Image src={item.image}></Image>
-              <Column>
-                <ItemName>{item.name}</ItemName>
-                <Quantity defaultValue={item.quantity}></Quantity>
-              </Column>
-              <Column2>
-                <Price>${item.price * item.quantity}</Price>
-                <Remove onClick={() => removeItem(i)}>Remove</Remove>
-              </Column2>
-            </CartItem>
-          )
-        })
-      }
+      { data.map((item, i) => {
+        return (
+          <CartItem key={item.name + i.toString() + item.quantity}>
+            <Image src={item.image}></Image>
+            <Column>
+              <ItemName>{item.name}</ItemName>
+              <Quantity defaultValue={item.quantity}></Quantity>
+            </Column>
+            <Column2>
+              <Price>${item.price * item.quantity}</Price>
+              <Remove onClick={() => props.removeFromCart(i)}>Remove</Remove>
+            </Column2>
+          </CartItem>
+        )
+      }) }
       <TotalDiv>
         <Row>
           <TotalLeft>Subtotal</TotalLeft>
@@ -163,8 +162,8 @@ const Cart = (props) => {
       <CompleteButton>
         Checkout
       </CompleteButton>
-    </CartContainer>
+    </CartContainer >
   );
-};
+}
 
 export default Cart;

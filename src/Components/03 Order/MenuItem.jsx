@@ -72,7 +72,6 @@ const MenuItem = (props) => {
         desc={desc}
         price={price}
         image={image}
-
         addToCart={props.addToCart}
       />
     </div>
