@@ -179,7 +179,7 @@ export const ItemTitleMobile = styled.p`
 export const TextDivMobile = styled.div`
   height: 30%;
   position: relative;
-  padding: 10px;
+  padding: 15px;
   background-color: white;
   display: flex;
 `;
