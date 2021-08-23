@@ -13,16 +13,17 @@ const Bottom = () => {
   }, [])
 
   const addToCart = (item) => {
+    item.i = data.length;
     setData(prevData => [...prevData, item]);
   }
 
   const removeFromCart = (index) => {
-    console.log('Previous:', data);
-    console.log('Index:', index);
-    setData(data.filter(item => item.indexOf === index));
+    console.log('Filtered:', data.filter(item => item.i !== index));
+    setData(data.filter(item => item.i !== index));
   }
 
   useEffect(() => {
+    data.forEach((item, j) => item.i = j);
     console.log('Data changed:', data);
   }, [data])
 

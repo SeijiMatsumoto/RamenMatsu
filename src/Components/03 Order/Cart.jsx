@@ -29,9 +29,12 @@ const Cart = (props) => {
     data.forEach(item => {
       setTotal(prevValue => prevValue += item.price * item.quantity);
     })
-    var tax = total * 0.07;
-    setTaxes(tax.toFixed(2));
   }, [data])
+
+  useEffect(() => {
+    var tax = subTotal * 0.07;
+    setTaxes(tax.toFixed(2));
+  }, [subTotal])
 
   useEffect(() => {
     if (selectedTip === 'tip1') {
