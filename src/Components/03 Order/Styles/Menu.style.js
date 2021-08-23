@@ -50,11 +50,13 @@ export const Body = styled.div`
   height: 100%;
   padding: 20px;
   border: 1px solid white;
+  margin-top: -20px;
 `;
 
 export const Title = styled.div`
   font-size: 30px;
   color: black;
+  margin-top: 20px;
 `;
 
 export const RamenDiv = styled.div`
@@ -63,7 +65,7 @@ export const RamenDiv = styled.div`
   width: 100%;
   flex-direction: row;
   flex-wrap: wrap;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #d3d3d3;
   padding-bottom: 30px;
   justify-content: ${props => props.justify};
 `;
@@ -73,7 +75,7 @@ export const SetsDiv = styled.div`
   display: flex;
   width: 100%;
   padding-top: 20px;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #d3d3d3;
   flex-direction: row;
   flex-wrap: wrap;
   padding-bottom: 30px;
