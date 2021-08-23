@@ -120,6 +120,10 @@ const NavCart = (props) => {
     props.setShowCart(false);
   }
 
+  const changeQuantity = (e) => {
+
+  }
+
   return (
     <NavCartContainer id='sideCart' className='sidenav' width={props.width}>
       <CloseBtn className="closebtn" onClick={closeNav}>X</CloseBtn>
@@ -133,10 +137,16 @@ const NavCart = (props) => {
                 <Image src={item.image}></Image>
                 <Column>
                   <ItemName>{item.name}</ItemName>
-                  <Quantity defaultValue={item.quantity}></Quantity>
+                  <Quantity defaultValue={item.quantity} onChange={(e) => changeQuantity(e, i)}>
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option>
+                  </Quantity>
                 </Column>
                 <Column2>
-                  <Price>${item.price * item.quantity}</Price>
+                  <Price>${(item.price * item.quantity).toFixed(2)}</Price>
                   <Remove onClick={() => props.removeFromCart(i)}>Remove</Remove>
                 </Column2>
               </CartItem>
@@ -146,7 +156,7 @@ const NavCart = (props) => {
             <TotalDiv>
               <Row>
                 <TotalLeft>Subtotal</TotalLeft>
-                <TotalRight>${subTotal}</TotalRight>
+                <TotalRight>${subTotal.toFixed(2)}</TotalRight>
               </Row>
               <Row>
                 <TotalLeft>Taxes</TotalLeft>
@@ -154,7 +164,11 @@ const NavCart = (props) => {
               </Row>
               <Row>
                 <TotalLeft>Tip</TotalLeft>
-                <TotalRight>${tip}</TotalRight>
+                {tip ? <TotalRight>${tip}</TotalRight> : <TotalRight>$0.00</TotalRight>}
+              </Row>
+              <Row>
+                <TotalLeft>Total</TotalLeft>
+                {tip ? <TotalRight>${(parseInt(tip) + parseInt(taxes) + parseInt(subTotal)).toFixed(2)}</TotalRight> : <TotalRight>${(parseInt(taxes) + parseInt(subTotal)).toFixed(2)}</TotalRight>}
               </Row>
               <TipContainer>
                 <Percentages>

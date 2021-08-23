@@ -33,14 +33,12 @@ const Navbar = (props) => {
   useEffect(() => {
     if (firstLoad) {
       if (data.length) {
-        console.log('Data exists');
         data.forEach((item, j) => item.i = j);
         updateLocalStorage(data);
         setFirstLoad(false);
       }
     } else {
       if (data.length) {
-        console.log('Data exists');
         data.forEach((item, j) => item.i = j);
         updateLocalStorage(data);
         setFirstLoad(false);

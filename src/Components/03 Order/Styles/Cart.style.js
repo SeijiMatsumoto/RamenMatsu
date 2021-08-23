@@ -68,7 +68,7 @@ export const Column2 = styled.div`
 export const ItemName = styled.div`
 `;
 
-export const Quantity = styled.input`
+export const Quantity = styled.select`
   width: 50px;
   border-radius: 5px;
   border: 1px solid black;

@@ -23,6 +23,8 @@ const Cart = (props) => {
   }, [props.data])
 
   useEffect(() => {
+    console.log('data changed2')
+
     setTotal(0);
     data.forEach(item => {
       setTotal(prevValue => prevValue += item.price * item.quantity);
@@ -83,6 +85,7 @@ const Cart = (props) => {
   }, [tipValue])
 
   const selectTip = (e) => {
+    e.preventDefault();
     var tip = e.target.innerHTML;
     if (tip === '10%') {
       setSelectedTip('tip1');
@@ -106,6 +109,7 @@ const Cart = (props) => {
   }
 
   const customTip = (e) => {
+    e.preventDefault();
     if (parseInt(e.target.value)) {
       setTipValue(parseInt(e.target.value) / 100)
       setSelectedTip('custom');
@@ -113,6 +117,17 @@ const Cart = (props) => {
       setTipValue(0);
       setSelectedTip('custom');
     }
+  }
+
+  const changeQuantity = (e, i) => {
+    e.preventDefault();
+
+    var q = parseInt(e.target.value);
+    console.log(q);
+    var temp = data;
+    temp[i].quantity = q;
+    console.log(temp);
+    props.setData(temp);
   }
 
   return (
@@ -125,10 +140,16 @@ const Cart = (props) => {
             <Image src={item.image}></Image>
             <Column>
               <ItemName>{item.name}</ItemName>
-              <Quantity defaultValue={item.quantity}></Quantity>
+              <Quantity defaultValue={item.quantity} onChange={(e) => changeQuantity(e, i)}>
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
+              </Quantity>
             </Column>
             <Column2>
-              <Price>${item.price * item.quantity}</Price>
+              <Price>${(item.price * item.quantity).toFixed(2)}</Price>
               <Remove onClick={() => props.removeFromCart(i)}>Remove</Remove>
             </Column2>
           </CartItem>
@@ -145,7 +166,11 @@ const Cart = (props) => {
         </Row>
         <Row>
           <TotalLeft>Tip</TotalLeft>
-          {tip ? <TotalRight>${tip}</TotalRight> : null}
+          {tip ? <TotalRight>${tip}</TotalRight> : <TotalRight>$0.00</TotalRight>}
+        </Row>
+        <Row>
+          <TotalLeft>Total</TotalLeft>
+          {tip ? <TotalRight>${(parseInt(tip) + parseInt(taxes) + parseInt(subTotal)).toFixed(2)}</TotalRight> : <TotalRight>${(parseInt(taxes) + parseInt(subTotal)).toFixed(2)}</TotalRight>}
         </Row>
         <TipContainer>
           <Percentages>
