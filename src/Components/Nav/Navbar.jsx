@@ -17,6 +17,7 @@ const Navbar = (props) => {
   var [showCart, setShowCart] = useState(false);
   var [showMenu, setShowMenu] = useState(false);
   var [data, setData] = useState([]);
+  var [firstLoad, setFirstLoad] = useState(true);
 
   useEffect(() => {
     window.addEventListener('resize', resize);
@@ -30,10 +31,22 @@ const Navbar = (props) => {
   }
 
   useEffect(() => {
-    if (data.length) {
-      console.log('Data2 exists');
-      data.forEach((item, j) => item.i = j);
-      updateLocalStorage(data);
+    if (firstLoad) {
+      if (data.length) {
+        console.log('Data exists');
+        data.forEach((item, j) => item.i = j);
+        updateLocalStorage(data);
+        setFirstLoad(false);
+      }
+    } else {
+      if (data.length) {
+        console.log('Data exists');
+        data.forEach((item, j) => item.i = j);
+        updateLocalStorage(data);
+        setFirstLoad(false);
+      } else {
+        updateLocalStorage([]);
+      }
     }
   }, [data])
 
