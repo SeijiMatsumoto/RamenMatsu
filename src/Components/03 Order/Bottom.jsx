@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { BottomContainer } from './Styles/Bottom.style.js';
 import Menu from './Menu.jsx';
 import Cart from './Cart.jsx';
+import { checkLocalStorage, addToLocalStorage } from '../helper.js';
+
 const Bottom = () => {
   var [showCart, setShowCart] = useState(true);
   var [bottomWidth, setBottomWidth] = useState('80%');
@@ -10,6 +12,7 @@ const Bottom = () => {
   useEffect(() => {
     window.addEventListener('resize', resize);
     resize();
+    setData(checkLocalStorage());
   }, [])
 
   const addToCart = (item) => {
@@ -23,8 +26,12 @@ const Bottom = () => {
   }
 
   useEffect(() => {
-    data.forEach((item, j) => item.i = j);
-    console.log('Data changed:', data);
+    if (data) {
+      data.forEach((item, j) => item.i = j);
+      console.log('Data changed:', data);
+      addToLocalStorage(data);
+      console.log('Local storage:', localStorage);
+    }
   }, [data])
 
   const resize = () => {

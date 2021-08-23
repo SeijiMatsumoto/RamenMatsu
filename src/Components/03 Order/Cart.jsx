@@ -3,8 +3,7 @@ import {
   CartContainer, Title, NoItems,
   CartItem, Image, Column, Column2, ItemName, Quantity, Price, Remove,
   TotalDiv, Row, TotalLeft, TotalRight, TipContainer, Percentages, Input, Custom, CustomTip, CompleteButton
-} from './Styles/Cart.style';
-// import { cartItems } from '../../../data/cartData.js';
+} from './Styles/Cart.style.js';
 
 const Cart = (props) => {
 
@@ -24,7 +23,6 @@ const Cart = (props) => {
   }, [props.data])
 
   useEffect(() => {
-    var total = 0;
     setTotal(0);
     data.forEach(item => {
       setTotal(prevValue => prevValue += item.price * item.quantity);
