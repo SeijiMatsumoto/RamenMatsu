@@ -11,7 +11,7 @@ export const TopContainer = styled.div`
 `;
 
 export const Title = styled.div`
-  width: 80%;
+  width: ${props => props.width};
   font-size: ${props => props.font};
   color: white;
 `;
