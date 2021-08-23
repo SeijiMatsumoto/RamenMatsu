@@ -99,7 +99,7 @@ export const ItemTitle = styled.p`
 export const TextDiv = styled.div`
   width: 30%;
   position: relative;
-  padding: 10px;
+  padding: 20px;
   background-color: white;
   display: flex;
 `;

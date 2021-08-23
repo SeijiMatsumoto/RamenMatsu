@@ -10,8 +10,6 @@ export const ModalDiv = styled.div`
 export const BtnDiv = styled.div`
   position: fixed;
   display: flex;
-  justify-content: center;
-  align-items: center;
   bottom: 20px;
   left: 20px;
   z-index: 1;
