@@ -3,21 +3,37 @@ import { NavCartContainer, CloseBtn, CartDiv } from './Styles/NavCart.style.js';
 import {
   CartContainer, Title,
   CartItem, Image, Column, Column2, ItemName, Quantity, Price, Remove,
-  TotalDiv, Row, TotalLeft, TotalRight, TipContainer, Percentages, Input, Custom, CustomTip, ButtonDiv, CompleteButton, BottomDiv
+  TotalDiv, Row, TotalLeft, TotalRight, TipContainer, Percentages, Input, Custom, CustomTip, ButtonDiv, CompleteButton, BottomDiv, NoItems
 } from '../03 Order/Styles/Cart.style.js';
-import { cartItems } from '../../../data/cartData.js';
 
 const NavCart = (props) => {
-  var subTotal = 0;
-  cartItems.forEach(item => {
-    subTotal += item.price * item.quantity;
-  })
-  var taxes = subTotal * 0.07;
-  taxes = taxes.toFixed(2);
 
   var [tip, setTip] = useState(null);
   var [tipValue, setTipValue] = useState('');
   var [selectedTip, setSelectedTip] = useState(null);
+  var [data, setData] = useState([]);
+  var [subTotal, setTotal] = useState(0);
+  var [taxes, setTaxes] = useState(0);
+
+  useEffect(() => {
+    if (props.data.length) {
+      setData(props.data)
+    } else {
+      setData([]);
+    }
+  }, [props.data])
+
+  useEffect(() => {
+    setTotal(0);
+    data.forEach(item => {
+      setTotal(prevValue => prevValue += item.price * item.quantity);
+    })
+  }, [data])
+
+  useEffect(() => {
+    var tax = subTotal * 0.07;
+    setTaxes(tax.toFixed(2));
+  }, [subTotal])
 
   useEffect(() => {
     if (selectedTip === 'tip1s') {
@@ -67,10 +83,6 @@ const NavCart = (props) => {
     }
   }, [tipValue])
 
-  const removeItem = () => {
-    console.log('Item removed!');
-  }
-
   const selectTip = (e) => {
     var tip = e.target.innerHTML;
     if (tip === '10%') {
@@ -103,6 +115,7 @@ const NavCart = (props) => {
       setSelectedTip('customs');
     }
   }
+
   const closeNav = () => {
     props.setShowCart(false);
   }
@@ -113,7 +126,8 @@ const NavCart = (props) => {
       <CartDiv>
         <CartContainer width={'95%'} shadow={'none'} height={'100%'}>
           <Title>Cart</Title>
-          {cartItems.map((item, i) => {
+          {!data.length ? <NoItems>No items in cart</NoItems> : null}
+          {data.map((item, i) => {
             return (
               <CartItem key={item.name + i.toString() + item.quantity}>
                 <Image src={item.image}></Image>
@@ -123,7 +137,7 @@ const NavCart = (props) => {
                 </Column>
                 <Column2>
                   <Price>${item.price * item.quantity}</Price>
-                  <Remove onClick={removeItem}>Remove</Remove>
+                  <Remove onClick={() => props.removeFromCart(i)}>Remove</Remove>
                 </Column2>
               </CartItem>
             )

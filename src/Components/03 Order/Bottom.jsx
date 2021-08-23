@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BottomContainer } from './Styles/Bottom.style.js';
 import Menu from './Menu.jsx';
 import Cart from './Cart.jsx';
-import { checkLocalStorage, addToLocalStorage } from '../helper.js';
+import { checkLocalStorage, updateLocalStorage } from '../helper.js';
 
 const Bottom = () => {
   var [showCart, setShowCart] = useState(true);
@@ -21,16 +21,14 @@ const Bottom = () => {
   }
 
   const removeFromCart = (index) => {
-    console.log('Filtered:', data.filter(item => item.i !== index));
     setData(data.filter(item => item.i !== index));
   }
 
   useEffect(() => {
-    if (data) {
+    if (data.length) {
+      console.log('Data exists');
       data.forEach((item, j) => item.i = j);
-      console.log('Data changed:', data);
-      addToLocalStorage(data);
-      console.log('Local storage:', localStorage);
+      updateLocalStorage(data);
     }
   }, [data])
 

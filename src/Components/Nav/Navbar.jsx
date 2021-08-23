@@ -4,6 +4,7 @@ import NavCart from './NavCart.jsx';
 import { NavbarContainer, Logo, SmallLogo, NavLinks, NavUL, NavLi, CartButton, MenuButton } from './Styles/Navbar.style.js';
 import { Link } from "react-router-dom";
 import anime from 'animejs/lib/anime.es.js';
+import { checkLocalStorage, updateLocalStorage } from '../helper.js';
 
 const Navbar = (props) => {
   var [navHeight, setNavHeight] = useState('150px');
@@ -15,11 +16,26 @@ const Navbar = (props) => {
   var [menuWidth, setMenuWidth] = useState('400px');
   var [showCart, setShowCart] = useState(false);
   var [showMenu, setShowMenu] = useState(false);
+  var [data, setData] = useState([]);
 
   useEffect(() => {
     window.addEventListener('resize', resize);
     resize();
+    setData(checkLocalStorage());
   }, [])
+
+  const removeFromCart = (index) => {
+    console.log('Filtered:', data.filter(item => item.i !== index));
+    setData(data.filter(item => item.i !== index));
+  }
+
+  useEffect(() => {
+    if (data.length) {
+      console.log('Data2 exists');
+      data.forEach((item, j) => item.i = j);
+      updateLocalStorage(data);
+    }
+  }, [data])
 
   const resize = () => {
     var width = window.innerWidth;
@@ -55,6 +71,7 @@ const Navbar = (props) => {
 
   const openNav = () => {
     setShowCart(true);
+    setData(checkLocalStorage());
   }
 
   const openMenu = () => {
@@ -115,7 +132,7 @@ const Navbar = (props) => {
           </NavUL>
           : null}
         <CartButton top={iconTop} onClick={openNav} className='fas fa-shopping-cart fa-lg' />
-        <NavCart width={menuWidth} setShowCart={setShowCart}/>
+        <NavCart width={menuWidth} setShowCart={setShowCart} removeFromCart={removeFromCart} data={data}/>
         {!showLinks ? <MenuButton onClick={openMenu} className='fas fa-bars fa-lg'/> : null}
         <SideMenu setShowMenu={setShowMenu}/>
       </NavLinks>
