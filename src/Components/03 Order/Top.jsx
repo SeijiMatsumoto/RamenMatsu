@@ -21,7 +21,7 @@ const Top = () => {
       setTopWidth('80%');
     } else {
       setTopHeight('400px');
-      setTopFont('100px')
+      setTopFont('80px')
       setTopWidth('70%');
     }
   }
