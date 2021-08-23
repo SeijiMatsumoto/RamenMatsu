@@ -91,7 +91,7 @@ export const ItemTitle = styled.p`
   justify-content: flex-end;
   font-size: 40px;
   color: white;
-  margin-right: 10px;
+  margin: 0px 10px 0px 0px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   letter-spacing: 4px;
 `;
@@ -171,7 +171,7 @@ export const ItemTitleMobile = styled.p`
   justify-content: flex-end;
   font-size: 40px;
   color: white;
-  margin-right: 10px;
+  margin: 0px 10px 0px 0px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   letter-spacing: 4px;
 `;

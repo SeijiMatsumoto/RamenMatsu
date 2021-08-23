@@ -23,11 +23,15 @@ const Cart = (props) => {
   }, [props.data])
 
   useEffect(() => {
+    updateData();
+  }, [data])
+
+  const updateData = () => {
     setTotal(0);
     data.forEach(item => {
       setTotal(prevValue => prevValue += item.price * item.quantity);
     })
-  }, [data])
+  }
 
   useEffect(() => {
     var tax = subTotal * 0.07;
@@ -107,7 +111,6 @@ const Cart = (props) => {
   }
 
   const customTip = (e) => {
-    e.preventDefault();
     if (parseInt(e.target.value)) {
       setTipValue(parseInt(e.target.value) / 100)
       setSelectedTip('custom');
@@ -118,14 +121,13 @@ const Cart = (props) => {
   }
 
   const changeQuantity = (e, i) => {
-    e.preventDefault();
-
     var q = parseInt(e.target.value);
     console.log(q);
     var temp = data;
     temp[i].quantity = q;
     console.log(temp);
     props.setData(temp);
+    updateData();
   }
 
   return (
