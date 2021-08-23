@@ -5,7 +5,12 @@ import { Link } from 'react-router-dom';
 const Carousel = () => {
   var [titleWidth, setTitleWidth] = useState('500px');
   var [titleTop, setTitleTop] = useState('0');
-  // var [images, setImages] = useState();
+  var [images, setImages] = useState([
+    'https://i.imgur.com/oKppLoe.jpg',
+    'https://i.imgur.com/vryUyOf.jpg',
+    'https://i.imgur.com/2YffMMf.jpg',
+    'https://i.imgur.com/hXCwxJ0.jpg',
+  ]);
 
   useEffect(() => {
     window.addEventListener('resize', resize);
@@ -23,13 +28,6 @@ const Carousel = () => {
       setTitleTop('0px');
     }
   }
-
-  const images = [
-    'https://i.imgur.com/GfNgWSx.jpg',
-    'https://i.imgur.com/vBVGJi2.jpg',
-    'https://i.imgur.com/FrktrIx.jpg',
-    'https://i.imgur.com/CJl5yoo.jpg',
-  ];
 
   return (
     <CarouselContainer id='carousel'>

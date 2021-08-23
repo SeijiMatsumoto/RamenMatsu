@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { FeaturedContainer, FeaturedDiv, ProductName, Title, Item, PicDiv, ItemPic, ItemText, Price } from './Styles/Featured.style';
-import { dummyData } from '../../../data/featuredData.js';
+import { featured } from '../../../data/featuredData.js';
 
 const Featured = () => {
   var [cardWidth, setCardWidth] = useState('350px');
-  var [data, setData] = useState([])
+  var [data, setData] = useState(featured)
 
   useEffect(() => {
     window.addEventListener('resize', resize);
     resize();
-    setData(dummyData);
   }, [])
 
   const resize = () => {

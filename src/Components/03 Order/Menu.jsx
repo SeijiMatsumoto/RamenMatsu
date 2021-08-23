@@ -5,6 +5,10 @@ import { ramen, sets, drinks } from '../../../data/menuData.js';
 
 const Menu = (props) => {
   var [justify, setJustify] = useState('center');
+  var [ramenData, setRamenData] = useState(ramen);
+  var [setsData, setSetsData] = useState(sets);
+  var [drinksData, setDrinksData] = useState(drinks);
+
 
   useEffect(() => {
     window.addEventListener('resize', resize);
@@ -35,7 +39,7 @@ const Menu = (props) => {
 
         <Title id='ramen'>Ramen</Title>
         <RamenDiv justify={justify}>
-          {ramen.map((each, i) => {
+          {ramenData.map((each, i) => {
             return (
               <MenuItem key={each.url + i.toString()} addToCart={props.addToCart} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
             )
@@ -44,7 +48,7 @@ const Menu = (props) => {
 
         <Title id='sets'>Sets</Title>
         <SetsDiv justify={justify}>
-          {sets.map((each, i) => {
+          {setsData.map((each, i) => {
             return (
               <MenuItem key={each.url + i.toString()} addToCart={props.addToCart} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
             )
@@ -53,7 +57,7 @@ const Menu = (props) => {
 
         <Title id='beverages'>Beverages</Title>
         <BeveragesDiv justify={justify}>
-          {drinks.map((each, i) => {
+          {drinksData.map((each, i) => {
             return (
               <MenuItem key={each.url + i.toString()} addToCart={props.addToCart} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
             )

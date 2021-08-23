@@ -12,27 +12,27 @@ const HowItsMade = () => {
   var [paddingBottom, setPaddingBottom] = useState('0');
   var [data, setData] = useState([
     {
-      image: 'https://i.imgur.com/0ggL3x2.jpg',
+      image: 'https://i.imgur.com/obLWg0D.jpg',
       title: '01. BROTH',
       description: `The broth consists of flavors from chicken and pork, vegetables, and fruits. It simmers for hours on end to extract maximum umami straight from the ingredients' cores. Each sip leaves you wanting more.`
     }, {
-      image: 'https://i.imgur.com/hoQjAkX.jpg',
+      image: 'https://i.imgur.com/3aJti36.jpg',
       title: '02. TARE',
       description: 'The tare comprises of the salty goodness from three different soy sauce types straight from Japan, with the ratio precisely measured by the Chef.'
     }, {
-      image: 'https://i.imgur.com/nthNzBJ.jpg',
+      image: 'https://i.imgur.com/Tp3IhNw.jpg',
       title: '03. CHASHU',
       description: 'The chashu comes in many different forms and each one has been expertly refined by the Chef for perfect synergy with the savoriness of the steaming soup.'
     }, {
-      image: 'https://i.imgur.com/PbKln4L.jpg',
+      image: 'https://i.imgur.com/CySYZ1K.jpg',
       title: '04. NOODLES',
       description: 'The noodles are sourced from Sun Noodle and were chosen after trying many variations until we found the perfect one.'
     }, {
-      image: 'https://i.imgur.com/EyB2Dap.jpg',
+      image: 'https://i.imgur.com/iQWIDmy.jpg',
       title: '05. TOPPINGS',
       description: 'Each and every topping is flavored precisely to fuse smoothly with the rest of the bowl.'
     }, {
-      image: 'https://i.imgur.com/EafvxtJ.jpg',
+      image: 'https://i.imgur.com/ly1vvoG.jpg',
       title: '06. RAMEN',
       description: 'With all of those components combined, you have a delicious bowl of ramen. You won\'t find anything like it.'
     },
