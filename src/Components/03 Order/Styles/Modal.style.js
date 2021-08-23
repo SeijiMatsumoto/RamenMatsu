@@ -63,7 +63,7 @@ export const Image =styled.img `
 
 export const TextDiv = styled.div`
   width: 100%;
-  height: 175px;
+  /* height: 200px; */
   position: relative;
   display: flex;
   flex-direction: column;
@@ -86,6 +86,7 @@ export const Name = styled.div`
 
 export const Desc = styled.div`
 position: relative;
+margin-bottom: 20px;
 `;
 
 export const Price = styled.div`
@@ -119,7 +120,32 @@ export const Quantity = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 25px;
-
   width: 50px;
 `;
 
+export const ModifiersDiv = styled.div`
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-direction: column;
+  top: 280px;
+`;
+
+export const Modifier = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin:10px;
+  width: 100%;
+  font-size: 25px;
+`;
+
+export const Checkbox = styled.input`
+  width: 30px;
+  height: 30px;
+`;
+
+export const Label = styled.label`
+  font-size: 25px;
+  margin-left: 20px;
+`;

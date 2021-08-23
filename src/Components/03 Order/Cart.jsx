@@ -23,8 +23,6 @@ const Cart = (props) => {
   }, [props.data])
 
   useEffect(() => {
-    console.log('data changed2')
-
     setTotal(0);
     data.forEach(item => {
       setTotal(prevValue => prevValue += item.price * item.quantity);

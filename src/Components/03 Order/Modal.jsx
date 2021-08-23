@@ -1,10 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactModal from 'react-modal';
-import { ModalDiv, Image, TextDiv, Name, QuantityDiv, QuantityBtn, Quantity, BottomHalfDiv, Desc, BtnDiv, CloseBtn, Add, Price } from './Styles/Modal.style';
+import { ModalDiv, Image, TextDiv, Name, QuantityDiv, QuantityBtn, Quantity, BottomHalfDiv, Desc, BtnDiv, CloseBtn, Add, Price, ModifiersDiv, Label, Modifier, Checkbox } from './Styles/Modal.style';
 
 const Modal = (props) => {
 
   var [quantity, setQuantity] = useState(1);
+  var [modalWidth, setModalWidth] = useState('600px');
+
+  useEffect(() => {
+    window.addEventListener('resize', resize);
+    resize();
+  }, [])
+
+  const resize = () => {
+    var width = window.innerWidth;
+
+    if (width <= 700) {
+      setModalWidth('90vw');
+    } else {
+      setModalWidth('600px');
+    }
+  }
 
   const customStyles = {
     content: {
@@ -12,7 +28,7 @@ const Modal = (props) => {
       left: '50%',
       right: 'auto',
       bottom: 'auto',
-      width: '600px',
+      width: modalWidth,
       height: '90%',
       margin: '0',
       marginRight: '-50%',
@@ -51,6 +67,44 @@ const Modal = (props) => {
             </QuantityDiv>
           </BottomHalfDiv>
         </TextDiv>
+        <ModifiersDiv>
+          <Modifier className="form-check">
+            <Checkbox className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+            <Label className="form-check-label" htmlFor="defaultCheck1">
+              Default checkbox
+            </Label>
+          </Modifier>
+          <Modifier className="form-check">
+            <Checkbox className="form-check-input" type="checkbox" value="" id="defaultCheck2"/>
+            <Label className="form-check-label" htmlFor="defaultCheck2">
+              Another checkbox
+            </Label>
+          </Modifier>
+          <Modifier className="form-check">
+            <Checkbox className="form-check-input" type="checkbox" value="" id="defaultCheck2"/>
+            <Label className="form-check-label" htmlFor="defaultCheck2">
+              Another checkbox
+            </Label>
+          </Modifier>
+          <Modifier className="form-check">
+            <Checkbox className="form-check-input" type="checkbox" value="" id="defaultCheck2"/>
+            <Label className="form-check-label" htmlFor="defaultCheck2">
+              Another checkbox
+            </Label>
+          </Modifier>
+          <Modifier className="form-check">
+            <Checkbox className="form-check-input" type="checkbox" value="" id="defaultCheck2"/>
+            <Label className="form-check-label" htmlFor="defaultCheck2">
+              Another checkbox
+            </Label>
+          </Modifier>
+          <Modifier className="form-check">
+            <Checkbox className="form-check-input" type="checkbox" value="" id="defaultCheck2"/>
+            <Label className="form-check-label" htmlFor="defaultCheck2">
+              Another checkbox
+            </Label>
+          </Modifier>
+        </ModifiersDiv>
         <BtnDiv>
           <CloseBtn onClick={props.handleCloseModal}>X</CloseBtn>
           <Add onClick={() => {
@@ -66,7 +120,7 @@ const Modal = (props) => {
         </BtnDiv>
       </ReactModal>
     </ModalDiv >
-  );
+        );
 };
 
-export default Modal;
+        export default Modal;

@@ -26,8 +26,6 @@ const Bottom = () => {
   }
 
   useEffect(() => {
-    console.log('data changed')
-
     if (firstLoad) {
       if (data.length) {
         data.forEach((item, j) => item.i = j);
