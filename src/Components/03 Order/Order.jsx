@@ -17,6 +17,7 @@ const Order = () => {
   const getData = () => {
     axios.get('/ramen')
       .then(res => {
+        // setRamenData(res.data);
         setRamenData(transformData(res.data));
       })
       .catch(err => {
@@ -24,6 +25,7 @@ const Order = () => {
       })
     axios.get('/sets')
       .then(res => {
+        // setSetsData(res.data);
         setSetsData(transformData(res.data));
       })
       .catch(err => {
@@ -31,6 +33,7 @@ const Order = () => {
       })
     axios.get('/drinks')
       .then(res => {
+        // setDrinksData(res.data);
         setDrinksData(transformData(res.data));
       })
       .catch(err => {
@@ -38,6 +41,7 @@ const Order = () => {
       })
     axios.get('/specials')
       .then(res => {
+        // setSpecialsData(res.data);
         setSpecialsData(transformData(res.data));
       })
       .catch(err => {
@@ -60,7 +64,7 @@ const Order = () => {
       eachItem.description = item.itemData.description;
       eachItem.price = item.itemData.variations[0].itemVariationData.priceMoney.amount;
       eachItem.price = parseInt(eachItem.price) * .01;
-      eachItem.image = obj.images[i];
+      // eachItem.image = obj.images[i];
       newData.push(eachItem);
     })
 
@@ -68,10 +72,10 @@ const Order = () => {
   }
 
   useEffect(() => {
-    if (setsData) {
-      console.log(setsData);
+    if (specialsData) {
+      console.log(specialsData);
     }
-  }, [setsData])
+  }, [specialsData])
 
   return (
     <OrderContainer>

@@ -7,7 +7,7 @@ const Menu = (props) => {
   var [justify, setJustify] = useState('center');
   var [ramenData, setRamenData] = useState(ramen);
   var [setsData, setSetsData] = useState(sets);
-  var [drinksData, setDrinksData] = useState();
+  var [drinksData, setDrinksData] = useState(drinks);
 
 
   useEffect(() => {
@@ -15,9 +15,9 @@ const Menu = (props) => {
     resize();
   }, [])
 
-  // useEffect(() => {
-  //   setRamenData(props.ramen);
-  // }, [props.ramen])
+  useEffect(() => {
+    setRamenData(props.ramen);
+  }, [props.ramen])
 
   useEffect(() => {
     if (props.sets) {
@@ -27,7 +27,6 @@ const Menu = (props) => {
 
   useEffect(() => {
     if (props.drinks) {
-      console.log('hello')
       setDrinksData(props.drinks);
     }
   }, [props.drinks])

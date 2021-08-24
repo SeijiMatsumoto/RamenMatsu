@@ -28,27 +28,23 @@ const getRamen = async (callback) => {
       ramenIds.push(item.id);
     })
 
-    // console.log(imageIds);
-
     getCatalogObjects(ramenIds)
       .then(result => {
         result = result.filter(item => item.itemData.name.includes('Ramen') || item.itemData.name.includes('Soba') || item.itemData.name.includes('Noodles'));
         result.forEach(item => {
-          imageIds.push(item.imageId);
+          imageIds.push(item.imageId, item.itemData.name);
         })
         menu.items = result
       })
       .then(() => {
-        return getImageLink(imageIds);
-      })
-      .then(result => {
-        // console.log('menu:', menu);
-        menu.images = result;
+        getImageLink(imageIds, (result) => {
+          menu.images = result;
+        });
       })
       .then(() => {
+        // console.log(menu.images);
         menu = JSON.stringify(menu, (_, v) => typeof v === 'bigint' ? v.toString() : v)
         callback(menu);
-        // return menu;
       })
       .catch((err) => {
         throw err
@@ -83,15 +79,14 @@ const getSets = async (callback) => {
     .then ((result) => {
       result = result.filter(item => item.itemData.name.includes('Set'))
       result.forEach(item => {
-        imageIds.push(item.imageId);
+        imageIds.push(item.imageId, item.itemData.name);
       })
       menu.items = result;
     })
     .then(() => {
-      return getImageLink(imageIds);
-    })
-    .then(result => {
-      menu.images = result;
+      getImageLink(imageIds, (result) => {
+        menu.images = result;
+      });
     })
     .then(() => {
       menu = JSON.stringify(menu, (_, v) => typeof v === 'bigint' ? v.toString() : v)
@@ -101,7 +96,6 @@ const getSets = async (callback) => {
       throw err
     });
 
-    // return menu;
     } catch (error) {
     console.log(error);
   }
@@ -130,17 +124,15 @@ const getDrinks = async (callback) => {
     .then ((result) => {
       result.forEach(item => {
         if (item.imageId) {
-          imageIds.push(item.imageId);
+        imageIds.push(item.imageId, item.itemData.name);
         }
       })
       menu.items = result;
     })
     .then(() => {
-      return getImageLink(imageIds);
-    })
-    .then(result => {
-      console.log(result);
-      menu.images = result;
+      getImageLink(imageIds, (result) => {
+        menu.images = result;
+      });
     })
     .then(() => {
       menu = JSON.stringify(menu, (_, v) => typeof v === 'bigint' ? v.toString() : v)
@@ -150,7 +142,6 @@ const getDrinks = async (callback) => {
       throw err
     });
 
-    // return menu;
     } catch (error) {
     console.log(error);
   }
@@ -180,15 +171,14 @@ const getSpecials = async (callback) => {
     .then ((result) => {
       result = result.filter(item => item.itemData.name.includes('Special'))
       result.forEach(item => {
-        imageIds.push(item.imageId);
+        imageIds.push(item.imageId, item.itemData.name);
       })
       menu.items = result;
     })
     .then(() => {
-      return getImageLink(imageIds);
-    })
-    .then(result => {
-      menu.images = result;
+      getImageLink(imageIds, (result) => {
+        menu.images = result;
+      });
     })
     .then(() => {
       menu = JSON.stringify(menu, (_, v) => typeof v === 'bigint' ? v.toString() : v)
@@ -198,7 +188,6 @@ const getSpecials = async (callback) => {
       throw err
     });
 
-    // return menu;
     } catch (error) {
     console.log(error);
   }
@@ -216,18 +205,22 @@ const getCatalogObjects = async (ids) => {
   }
 }
 
-const getImageLink = async (ids) => {
-  try {
-    const response = await catalogApi.batchRetrieveCatalogObjects({
-      objectIds: ids
-    });
-    var result = response.result.objects;
-    result = result.map(item => item.imageData.url);
-    // console.log(result);
-    return result;
-  } catch (error) {
-    console.log('ummm')
-  }
+const getImageLink = async (ids, callback) => {
+  var output = {}
+  var names = ids.filter((index, i) => i % 2 !== 0);
+  ids = ids.filter((index, i) => i % 2 === 0);
+  await ids.forEach(async (id, i) => {
+    try {
+      const response = await catalogApi.retrieveCatalogObject(id);
+      var result = response.result.object.imageData.url;
+      output[names[i]] = result;
+      console.log(output);
+      callback(output);
+    } catch (error) {
+      console.log('error');
+    }
+  })
+  return output;
 }
 
 module.exports = { getRamen, getSets, getDrinks, getSpecials }
