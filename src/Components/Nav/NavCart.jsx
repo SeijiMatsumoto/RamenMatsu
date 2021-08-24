@@ -5,6 +5,7 @@ import {
   CartItem, Image, Column, Column2, ItemName, Quantity, Price, Remove,
   TotalDiv, Row, TotalLeft, TotalRight, TipContainer, Percentages, Input, Custom, CustomTip, ButtonDiv, CompleteButton, BottomDiv, NoItems
 } from '../03 Order/Styles/Cart.style.js';
+import { Link } from 'react-router-dom';
 
 const NavCart = (props) => {
 
@@ -185,7 +186,7 @@ const NavCart = (props) => {
             </TotalDiv>
             <ButtonDiv>
               <CompleteButton>
-                Checkout
+                <Link id='linkWhite' to='/checkout'>Checkout</Link>
               </CompleteButton>
             </ButtonDiv>
           </BottomDiv>

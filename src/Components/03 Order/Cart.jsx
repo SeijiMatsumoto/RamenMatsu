@@ -4,6 +4,7 @@ import {
   CartItem, Image, Column, Column2, ItemName, Quantity, Price, Remove,
   TotalDiv, Row, TotalLeft, TotalRight, TipContainer, Percentages, Input, Custom, CustomTip, CompleteButton
 } from './Styles/Cart.style.js';
+import { Link } from 'react-router-dom';
 
 const Cart = (props) => {
 
@@ -186,7 +187,7 @@ const Cart = (props) => {
         </TipContainer>
       </TotalDiv>
       <CompleteButton>
-        Checkout
+        <Link id='linkWhite' to='/checkout'>Checkout</Link>
       </CompleteButton>
     </CartContainer >
   );

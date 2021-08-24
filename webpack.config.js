@@ -19,5 +19,6 @@ module.exports = {
   },
   externals: {
     jquery: 'jQuery'
-  }
+  },
+  target: 'node'
 };

@@ -4,7 +4,7 @@ import Menu from './Menu.jsx';
 import Cart from './Cart.jsx';
 import { checkLocalStorage, updateLocalStorage } from '../helper.js';
 
-const Bottom = () => {
+const Bottom = (props) => {
   var [showCart, setShowCart] = useState(true);
   var [bottomWidth, setBottomWidth] = useState('80%');
   var [data, setData] = useState([]);
@@ -57,7 +57,7 @@ const Bottom = () => {
 
   return (
     <BottomContainer width={bottomWidth}>
-      <Menu addToCart={addToCart}></Menu>
+      <Menu addToCart={addToCart} ramen={props.ramen} sets={props.setsData} drinks={props.drinksData} specials={props.specialsData}></Menu>
       {showCart ? <Cart data={data} setData={setData} removeFromCart={removeFromCart}></Cart> : null}
     </BottomContainer>
   );

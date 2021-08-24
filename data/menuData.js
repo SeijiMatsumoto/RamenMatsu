@@ -16,7 +16,7 @@ export const ramen = [
     image: 'https://i.imgur.com/lzdQ69L.jpg'
   }, {
     name: 'Abura Soba',
-    description: 'Soy sauce based soupless ramen with pork belly, egg, scallions, bamboo shoot.',
+    description: 'Soy sauce based soupless ramen with pork shoulder, egg, scallions, bamboo shoot.',
     price: 11.75,
     image: 'https://i.imgur.com/UsDP1fG.jpg'
   }, {
@@ -26,7 +26,7 @@ export const ramen = [
     image: 'https://i.imgur.com/sDbRvaj.jpg'
   }, {
     name: 'Wafu Shoyu Ramen (w/ Pork)',
-    description: 'Soy sauce based Japanese-style ramen with pork belly, egg, scallions, bamboo shoot.',
+    description: 'Soy sauce based Japanese-style ramen with pork shoulder, egg, scallions, bamboo shoot.',
     price: 11.75,
     image: 'https://i.imgur.com/ZtJT7WO.jpg'
   }, {
@@ -36,7 +36,7 @@ export const ramen = [
     image: 'https://i.imgur.com/u7iMlP6.jpg'
   }, {
     name: 'Wafu Shio Ramen (w/ Pork)',
-    description: 'Salt based Japanese-style ramen with pork belly, egg, scallions, bamboo shoot.',
+    description: 'Salt based Japanese-style ramen with pork shoulder, egg, scallions, bamboo shoot.',
     price: 11.75,
     image: 'https://i.imgur.com/YeKzTso.jpg'
   }, {

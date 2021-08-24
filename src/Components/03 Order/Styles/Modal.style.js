@@ -72,7 +72,6 @@ export const TextDiv = styled.div`
 
 export const BottomHalfDiv = styled.div`
   display: flex;
-  height: 100%;
   flex-direction: column;
   justify-content: space-between;
 `;
@@ -129,21 +128,43 @@ export const ModifiersDiv = styled.div`
   top: 280px;
 `;
 
+export const ModifierTitle = styled.div`
+  font-size: ${props => props.font || '18px'};
+`;
+
 export const Modifier = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin:10px;
+  /* justify-content: center; */
+  align-items: center;
+  margin: 0px 0px 0px 0px;
+  padding: 15px;
   width: 100%;
+  border-bottom: 1px solid #E5E5E5;
   font-size: 25px;
 `;
 
-export const Checkbox = styled.input`
-  width: 30px;
-  height: 30px;
+export const Checkbox = styled.div`
+  position: absolute;
+  margin-top: 0;
+`;
+
+export const ModContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 `;
 
 export const Label = styled.label`
-  font-size: 25px;
-  margin-left: 20px;
+  font-size: 16px;
+  margin-left: 5px;
+  /* border: 1px solid red; */
+
+`;
+
+export const ModifierPrice = styled.div`
+  /* border: 1px solid red; */
+  font-size: 16px;
+  width: 30%;
+  text-align: right;
 `;

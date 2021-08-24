@@ -28,3 +28,4 @@ public/bundle.js
 src/images
 
 .env
+data_from_api

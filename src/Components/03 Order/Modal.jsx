@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactModal from 'react-modal';
-import { ModalDiv, Image, TextDiv, Name, QuantityDiv, QuantityBtn, Quantity, BottomHalfDiv, Desc, BtnDiv, CloseBtn, Add, Price, ModifiersDiv, Label, Modifier, Checkbox } from './Styles/Modal.style';
+import { ModalDiv, Image, TextDiv, Name, QuantityDiv, QuantityBtn, Quantity, BottomHalfDiv, Desc, BtnDiv, CloseBtn, Add, Price, ModifiersDiv, Label, Modifier, Checkbox, ModifierTitle, ModifierPrice, ModContainer } from './Styles/Modal.style';
 
 const Modal = (props) => {
 
@@ -68,59 +68,124 @@ const Modal = (props) => {
           </BottomHalfDiv>
         </TextDiv>
         <ModifiersDiv>
+          <ModifierTitle>Extra ramen toppings</ModifierTitle>
+          <ModifierTitle font={'15px'}>Select all that apply</ModifierTitle>
           <Modifier className="form-check">
-            <Checkbox className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+            <Checkbox>
+              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+            </Checkbox>
+            <ModContainer>
             <Label className="form-check-label" htmlFor="defaultCheck1">
               Default checkbox
             </Label>
+            <ModifierPrice>$1.00</ModifierPrice>
+            </ModContainer>
           </Modifier>
           <Modifier className="form-check">
-            <Checkbox className="form-check-input" type="checkbox" value="" id="defaultCheck2"/>
-            <Label className="form-check-label" htmlFor="defaultCheck2">
-              Another checkbox
+            <Checkbox>
+              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+            </Checkbox>
+            <ModContainer>
+            <Label className="form-check-label" htmlFor="defaultCheck1">
+              Default checkbox
             </Label>
+            <ModifierPrice>$1.00</ModifierPrice>
+            </ModContainer>
           </Modifier>
           <Modifier className="form-check">
-            <Checkbox className="form-check-input" type="checkbox" value="" id="defaultCheck2"/>
-            <Label className="form-check-label" htmlFor="defaultCheck2">
-              Another checkbox
+            <Checkbox>
+              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+            </Checkbox>
+            <ModContainer>
+            <Label className="form-check-label" htmlFor="defaultCheck1">
+              Default checkbox
             </Label>
+            <ModifierPrice>$1.00</ModifierPrice>
+            </ModContainer>
           </Modifier>
           <Modifier className="form-check">
-            <Checkbox className="form-check-input" type="checkbox" value="" id="defaultCheck2"/>
-            <Label className="form-check-label" htmlFor="defaultCheck2">
-              Another checkbox
+            <Checkbox>
+              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+            </Checkbox>
+            <ModContainer>
+            <Label className="form-check-label" htmlFor="defaultCheck1">
+              Default checkbox
             </Label>
+            <ModifierPrice>$1.00</ModifierPrice>
+            </ModContainer>
           </Modifier>
           <Modifier className="form-check">
-            <Checkbox className="form-check-input" type="checkbox" value="" id="defaultCheck2"/>
-            <Label className="form-check-label" htmlFor="defaultCheck2">
-              Another checkbox
+            <Checkbox>
+              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+            </Checkbox>
+            <ModContainer>
+            <Label className="form-check-label" htmlFor="defaultCheck1">
+              Default checkbox
             </Label>
+            <ModifierPrice>$1.00</ModifierPrice>
+            </ModContainer>
           </Modifier>
           <Modifier className="form-check">
-            <Checkbox className="form-check-input" type="checkbox" value="" id="defaultCheck2"/>
-            <Label className="form-check-label" htmlFor="defaultCheck2">
-              Another checkbox
+            <Checkbox>
+              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+            </Checkbox>
+            <ModContainer>
+            <Label className="form-check-label" htmlFor="defaultCheck1">
+              Default checkbox
             </Label>
+            <ModifierPrice>$1.00</ModifierPrice>
+            </ModContainer>
+          </Modifier>
+          <Modifier className="form-check">
+            <Checkbox>
+              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+            </Checkbox>
+            <ModContainer>
+            <Label className="form-check-label" htmlFor="defaultCheck1">
+              Default checkbox
+            </Label>
+            <ModifierPrice>$1.00</ModifierPrice>
+            </ModContainer>
+          </Modifier>
+          <Modifier className="form-check">
+            <Checkbox>
+              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+            </Checkbox>
+            <ModContainer>
+            <Label className="form-check-label" htmlFor="defaultCheck1">
+              Default checkbox
+            </Label>
+            <ModifierPrice>$1.00</ModifierPrice>
+            </ModContainer>
+          </Modifier>
+          <Modifier className="form-check">
+            <Checkbox>
+              <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+            </Checkbox>
+            <ModContainer>
+            <Label className="form-check-label" htmlFor="defaultCheck1">
+              Default checkbox
+            </Label>
+            <ModifierPrice>$1.00</ModifierPrice>
+            </ModContainer>
           </Modifier>
         </ModifiersDiv>
         <BtnDiv>
-          <CloseBtn onClick={props.handleCloseModal}>X</CloseBtn>
-          <Add onClick={() => {
-            props.addToCart({
-              name: props.name,
-              price: props.price,
-              image: props.image,
-              quantity: quantity
-            });
-            props.handleCloseModal();
-          }
-          }>Add to order<Price margin={'10px'}>${(props.price * quantity).toFixed(2)}</Price></Add>
-        </BtnDiv>
+        <CloseBtn onClick={props.handleCloseModal}>X</CloseBtn>
+        <Add onClick={() => {
+          props.addToCart({
+            name: props.name,
+            price: props.price,
+            image: props.image,
+            quantity: quantity
+          });
+          props.handleCloseModal();
+        }
+        }>Add to order<Price margin={'10px'}>${(props.price * quantity).toFixed(2)}</Price></Add>
+      </BtnDiv>
       </ReactModal>
     </ModalDiv >
-        );
+  );
 };
 
-        export default Modal;
+export default Modal;
