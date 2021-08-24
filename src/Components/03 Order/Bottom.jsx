@@ -57,7 +57,7 @@ const Bottom = (props) => {
 
   return (
     <BottomContainer width={bottomWidth}>
-      <Menu addToCart={addToCart} ramen={props.ramen} sets={props.setsData} drinks={props.drinksData} specials={props.specialsData}></Menu>
+      <Menu addToCart={addToCart} ramen={props.ramen} sets={props.sets} drinks={props.drinks} specials={props.specials}></Menu>
       {showCart ? <Cart data={data} setData={setData} removeFromCart={removeFromCart}></Cart> : null}
     </BottomContainer>
   );

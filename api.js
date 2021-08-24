@@ -11,7 +11,7 @@ const catalogApi = client.catalogApi;
 
 const getRamen = async (callback) => {
   var menu = {
-    ramen: {},
+    items: {},
     images: {}
   }
   var allItems = [];
@@ -36,7 +36,7 @@ const getRamen = async (callback) => {
         result.forEach(item => {
           imageIds.push(item.imageId);
         })
-        menu.ramen = result
+        menu.items = result
       })
       .then(() => {
         return getImageLink(imageIds);
@@ -62,7 +62,7 @@ const getRamen = async (callback) => {
 
 const getSets = async (callback) => {
   var menu = {
-    sets: {},
+    items: {},
     images: {}
   }
   var allItems = [];
@@ -85,7 +85,7 @@ const getSets = async (callback) => {
       result.forEach(item => {
         imageIds.push(item.imageId);
       })
-      menu.sets = result;
+      menu.items = result;
     })
     .then(() => {
       return getImageLink(imageIds);
@@ -109,7 +109,7 @@ const getSets = async (callback) => {
 
 const getDrinks = async (callback) => {
   var menu = {
-    drinks: {},
+    items: {},
     images: {}
   }
   var allItems = [];
@@ -133,7 +133,7 @@ const getDrinks = async (callback) => {
           imageIds.push(item.imageId);
         }
       })
-      menu.drinks = result;
+      menu.items = result;
     })
     .then(() => {
       return getImageLink(imageIds);
@@ -158,7 +158,7 @@ const getDrinks = async (callback) => {
 
 const getSpecials = async (callback) => {
   var menu = {
-    specials: {},
+    items: {},
     images: {}
   }
 
@@ -182,7 +182,7 @@ const getSpecials = async (callback) => {
       result.forEach(item => {
         imageIds.push(item.imageId);
       })
-      menu.specials = result;
+      menu.items = result;
     })
     .then(() => {
       return getImageLink(imageIds);

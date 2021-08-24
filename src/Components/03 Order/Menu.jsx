@@ -7,13 +7,30 @@ const Menu = (props) => {
   var [justify, setJustify] = useState('center');
   var [ramenData, setRamenData] = useState(ramen);
   var [setsData, setSetsData] = useState(sets);
-  var [drinksData, setDrinksData] = useState(drinks);
+  var [drinksData, setDrinksData] = useState();
 
 
   useEffect(() => {
     window.addEventListener('resize', resize);
     resize();
   }, [])
+
+  // useEffect(() => {
+  //   setRamenData(props.ramen);
+  // }, [props.ramen])
+
+  useEffect(() => {
+    if (props.sets) {
+      setSetsData(props.sets);
+    }
+  }, [props.sets])
+
+  useEffect(() => {
+    if (props.drinks) {
+      console.log('hello')
+      setDrinksData(props.drinks);
+    }
+  }, [props.drinks])
 
   const resize = () => {
     var width = window.innerWidth;
@@ -39,29 +56,31 @@ const Menu = (props) => {
 
         <Title id='ramen'>Ramen</Title>
         <RamenDiv justify={justify}>
-          {ramenData.map((each, i) => {
-            return (
-              <MenuItem key={each.url + i.toString()} addToCart={props.addToCart} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
-            )
-          })}
+          {ramenData ?
+            ramenData.map((each, i) => {
+              return (
+                <MenuItem key={each.url + i.toString()} addToCart={props.addToCart} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
+              )
+            }) : null}
         </RamenDiv>
 
         <Title id='sets'>Sets</Title>
         <SetsDiv justify={justify}>
-          {setsData.map((each, i) => {
-            return (
-              <MenuItem key={each.url + i.toString()} addToCart={props.addToCart} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
-            )
-          })}
+            {setsData.map((each, i) => {
+              return (
+                <MenuItem key={each.url + i.toString()} addToCart={props.addToCart} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
+              )
+            })}
         </SetsDiv>
 
         <Title id='beverages'>Beverages</Title>
         <BeveragesDiv justify={justify}>
-          {drinksData.map((each, i) => {
-            return (
-              <MenuItem key={each.url + i.toString()} addToCart={props.addToCart} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
-            )
-          })}
+          {drinksData ?
+            drinksData.map((each, i) => {
+              return (
+                <MenuItem key={each.url + i.toString()} addToCart={props.addToCart} name={each.name} image={each.image} desc={each.description} price={each.price}></MenuItem>
+              )
+            }) : null}
         </BeveragesDiv>
       </Body>
     </MenuContainer>

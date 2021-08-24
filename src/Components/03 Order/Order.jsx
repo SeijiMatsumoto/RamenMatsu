@@ -17,43 +17,61 @@ const Order = () => {
   const getData = () => {
     axios.get('/ramen')
       .then(res => {
-        setRamenData(res.data);
+        setRamenData(transformData(res.data));
       })
       .catch(err => {
         console.log(err);
       })
     axios.get('/sets')
       .then(res => {
-        setSetsData(res.data);
+        setSetsData(transformData(res.data));
       })
       .catch(err => {
         console.log(err);
       })
     axios.get('/drinks')
       .then(res => {
-        setDrinksData(res.data);
+        setDrinksData(transformData(res.data));
       })
       .catch(err => {
         console.log(err);
       })
     axios.get('/specials')
       .then(res => {
-        setSpecialsData(res.data);
+        setSpecialsData(transformData(res.data));
       })
       .catch(err => {
         console.log(err);
       })
   }
 
-  const transformData = () => {
+  const transformData = (obj) => {
+    var newData = [];
 
+    obj.items.forEach((item, i) => {
+      var eachItem = {
+        name: '',
+        description: '',
+        price: 0,
+        image: ''
+      };
+
+      eachItem.name = item.itemData.name;
+      eachItem.description = item.itemData.description;
+      eachItem.price = item.itemData.variations[0].itemVariationData.priceMoney.amount;
+      eachItem.price = parseInt(eachItem.price) * .01;
+      eachItem.image = obj.images[i];
+      newData.push(eachItem);
+    })
+
+    return newData;
   }
 
   useEffect(() => {
-    if (ramenData) {
-      console.log(ramenData);
+    if (setsData) {
+      console.log(setsData);
     }
-  }, [ramenData])
+  }, [setsData])
 
   return (
     <OrderContainer>
