@@ -5,7 +5,7 @@ A website for a ramen restaurant called Ramen Matsu.
 View the current state of this project at: [https://ramenmatsu.netlify.app](https://ramenmatsu.netlify.app)
 ![](https://i.imgur.com/kVP5LGh.png)
 
-![](https://i.imgur.com/k7G7nmg.png =190.5x369)
+![](https://i.imgur.com/k7G7nmg.png)
 
 ## Summary
 The original website for Ramen Matsu was built with Square's website builder, which featured a different modules you can place onto the page. After setting it up and maintaining it for the past year, I found it to be very limited in capability and had small issues that I wish were customizable. My solution was to build my own website from scratch - following my vision of what the website should actually look like.
