@@ -23,14 +23,26 @@ const MenuItem = (props) => {
   const resize = () => {
     var width = window.innerWidth;
 
-    if (width <= 500) {
-      setItemWidth('100%');
+    if (width <= 400) {
+      setItemWidth('325px');
+      setItemHeight('125px');
+      setDescFont('11px');
+      setNameFont('13px');
+      setMargin('5px');
+    } else if (width <= 450) {
+      setItemWidth('380px');
+      setItemHeight('125px');
+      setDescFont('12px');
+      setNameFont('13px');
+      setMargin('5px');
+    } else if (width <= 500) {
+      setItemWidth('450px');
       setItemHeight('125px');
       setDescFont('12px');
       setNameFont('13px');
       setMargin('5px');
     } else if (width <= 630) {
-      setItemWidth('100%');
+      setItemWidth('500px');
       setItemHeight('125px');
       setDescFont('12px');
       setNameFont('13px');
