@@ -8,7 +8,7 @@ export const MenuItemContainer = styled.div`
   margin: ${props => props.margin};
   /* overflow: hidden; */
   flex-direction: row;
-  align-items: center;
+  /* align-items: center; */
   transition: 0.15s ease-in;
   cursor: pointer;
 
@@ -24,6 +24,7 @@ export const TextDiv = styled.div`
   padding: 7px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 `;
 
 export const Image = styled.img`
@@ -54,7 +55,7 @@ export const Desc = styled.div`
   display: flex;
   font-size: ${props => props.font};
   width: 100%;
-
+  height: 100%;
 `;
 
 export const Price = styled.div`
@@ -63,4 +64,23 @@ export const Price = styled.div`
   font-size: 12px;
   width: 100%;
   justify-content: flex-start;
+`;
+
+export const QuickAdd = styled.div`
+  position: absolute;
+  display: flex;
+  width: 80px;
+  height: 30px;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 25px;
+  font-size: 12px;
+  background-color: #5E6C7C;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  &:hover{
+    background: #2f3d51;
+  }
 `;

@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 const Carousel = () => {
   var [titleWidth, setTitleWidth] = useState('500px');
   var [titleTop, setTitleTop] = useState('0');
-  var [images, setImages] = useState([
-    'https://i.imgur.com/oKppLoe.jpg',
-    'https://i.imgur.com/vryUyOf.jpg',
-    'https://i.imgur.com/2YffMMf.jpg',
-    'https://i.imgur.com/hXCwxJ0.jpg',
-  ]);
+  // var [images, setImages] = useState([
+  //   'https://i.imgur.com/oKppLoe.jpg',
+  //   'https://i.imgur.com/vryUyOf.jpg',
+  //   'https://i.imgur.com/2YffMMf.jpg',
+  //   'https://i.imgur.com/hXCwxJ0.jpg',
+  // ]);
 
   useEffect(() => {
     window.addEventListener('resize', resize);
@@ -28,6 +28,13 @@ const Carousel = () => {
       setTitleTop('0px');
     }
   }
+
+  var images  = [
+    'https://i.imgur.com/oKppLoe.jpg',
+    'https://i.imgur.com/vryUyOf.jpg',
+    'https://i.imgur.com/2YffMMf.jpg',
+    'https://i.imgur.com/hXCwxJ0.jpg',
+  ]
 
   return (
     <CarouselContainer id='carousel'>

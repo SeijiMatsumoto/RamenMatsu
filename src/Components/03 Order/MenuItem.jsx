@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MenuItemContainer, TextDiv, Image, Name, DescPrice, Desc, Price } from './Styles/MenuItem.style';
+import { MenuItemContainer, TextDiv, Image, Name, DescPrice, Desc, Price, QuickAdd } from './Styles/MenuItem.style';
 import Modal from './Modal.jsx';
 
 const MenuItem = (props) => {
@@ -57,15 +57,24 @@ const MenuItem = (props) => {
 
   return (
     <div>
-      <MenuItemContainer width={itemWidth} height={itemHeight} margin={margin} onClick={handleOpenModal}>
+      <MenuItemContainer width={itemWidth} height={itemHeight} margin={margin}>
         <TextDiv>
-          <Name font={nameFont}>{name}</Name>
+          <Name onClick={handleOpenModal} font={nameFont}>{name}</Name>
           <DescPrice>
-            <Desc font={descFont}>{desc}</Desc>
-            <Price>${price}</Price>
+            <Desc onClick={handleOpenModal} font={descFont}>{desc}</Desc>
+            <Price onClick={handleOpenModal}>${price}</Price>
+            <QuickAdd onClick={() => {
+              props.addToCart({
+                name: props.name,
+                price: props.price,
+                image: props.image,
+                quantity: 1
+              })
+            }
+            }>Quick Add</QuickAdd>
           </DescPrice>
         </TextDiv>
-        <Image src={image}></Image>
+        <Image src={image} onClick={handleOpenModal}></Image>
       </MenuItemContainer>
       <Modal
         show={showModal}
