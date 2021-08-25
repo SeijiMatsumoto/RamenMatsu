@@ -40,7 +40,7 @@ const NavCart = (props) => {
     if (selectedTip === 'tip1s') {
       document.getElementById(selectedTip).classList.add('selectedTip');
       document.getElementById('tip2s').classList.remove('selectedTip');
-      document.getElementById('tip3').classList.remove('selectedTip');
+      document.getElementById('tip3s').classList.remove('selectedTip');
       document.getElementById('noTips').classList.remove('selectedTip');
       document.getElementById('customs').classList.remove('selectedTip');
       document.getElementById('customButtons').classList.remove('selectedTip');

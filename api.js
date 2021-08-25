@@ -214,7 +214,7 @@ const getImageLink = async (ids, callback) => {
       const response = await catalogApi.retrieveCatalogObject(id);
       var result = response.result.object.imageData.url;
       output[names[i]] = result;
-      console.log(output);
+      // console.log(output);
       callback(output);
     } catch (error) {
       console.log('error');

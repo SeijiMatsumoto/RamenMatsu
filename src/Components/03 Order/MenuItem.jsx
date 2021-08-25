@@ -30,19 +30,25 @@ const MenuItem = (props) => {
       setNameFont('13px');
       setMargin('5px');
     } else if (width <= 450) {
-      setItemWidth('380px');
+      setItemWidth('370px');
       setItemHeight('125px');
       setDescFont('12px');
       setNameFont('13px');
       setMargin('5px');
     } else if (width <= 500) {
-      setItemWidth('450px');
+      setItemWidth('400px');
       setItemHeight('125px');
       setDescFont('12px');
       setNameFont('13px');
-      setMargin('5px');
+      setMargin('10px');
+    } else if (width <= 540) {
+      setItemWidth('480px');
+      setItemHeight('125px');
+      setDescFont('12px');
+      setNameFont('13px');
+      setMargin('10px');
     } else if (width <= 630) {
-      setItemWidth('500px');
+      setItemWidth('520px');
       setItemHeight('125px');
       setDescFont('12px');
       setNameFont('13px');

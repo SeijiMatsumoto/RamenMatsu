@@ -73,7 +73,7 @@ const Order = () => {
 
   useEffect(() => {
     if (specialsData) {
-      console.log(specialsData);
+      // console.log(specialsData);
     }
   }, [specialsData])
 

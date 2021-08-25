@@ -37,7 +37,7 @@ const Featured = () => {
                 {item.description}
                 <br/>
               </ItemText>
-              <Price>${item.price}</Price>
+              {/* <Price>${item.price}</Price> */}
             </Item>
           )
         })}

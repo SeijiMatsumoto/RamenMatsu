@@ -18,8 +18,8 @@ export const Title = styled.div`
   position: relative;
   top: 0;
   width: 100%;
-  height: 55px;
-  border-bottom: 1px solid black;
+  height: 56px;
+  border-bottom: 2px solid #d3d3d3;
   font-size: 25px;
   margin-bottom: 20px;
   text-align: left;
@@ -37,7 +37,7 @@ export const CartItem = styled.div`
   flex-direction: row;
   padding-bottom: 30px;
   margin-bottom: 30px;
-  border-bottom: 1px solid gray;
+  border-bottom: 2px solid #d3d3d3;
   justify-content: space-between;
   width: 100%;
 `;

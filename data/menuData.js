@@ -69,37 +69,37 @@ export const sets = [
 export const drinks = [
   {
     name: 'Bottled water',
-    description: '                                                                 ',
+    description: '',
     price: 1.50,
     image: 'https://i.imgur.com/Pc91OqX.jpg'
   }, {
     name: 'Jurokucha',
-    description: '                                                                 ',
+    description: '',
     price: 2.50,
     image: 'https://i.imgur.com/3PKmq7d.jpg',
   }, {
     name: 'Calpico',
-    description: '                                                                 ',
+    description: '',
     price: 2.50,
     image: 'https://i.imgur.com/SWoipJu.jpg'
   }, {
     name: 'Coke',
-    description: '                                                                 ',
+    description: '',
     price: 1.50,
     image: 'https://i.imgur.com/B3Jen2Y.jpg'
   }, {
     name: 'Diet Coke',
-    description: '                                                                 ',
+    description: '',
     price: 1.50,
     image: 'https://i.imgur.com/r2VKUO5.jpg'
   }, {
     name: 'Sprite',
-    description: '                                                                 ',
+    description: '',
     price: 1.50,
     image: 'https://i.imgur.com/6bU75az.jpg'
   }, {
     name: 'Ramune Original',
-    description: '                                                                 ',
+    description: '',
     price: 2.50,
     image: 'https://i.imgur.com/NKsjAz4.jpg'
   }
