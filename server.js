@@ -10,6 +10,10 @@ app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(process.cwd(), url));
+})
+
 app.get('/ramen', (req, res) => {
   getRamen((menu) => {
     res.send(menu);
@@ -33,10 +37,6 @@ app.get('/specials', (req, res) => {
     res.send(menu);
   })
 });
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(process.cwd(), url));
-})
 
 app.get('/order', (req, res) => {
   res.sendFile(path.join(process.cwd(), url));
