@@ -52,7 +52,7 @@ export const NavLi = styled.li`
   font-size: 16px;
   padding: 15px;
   cursor: pointer;
-  color: black;
+  color: #36465E;
   transition: 0.2s ease-in;
 
   &:hover {
@@ -60,7 +60,7 @@ export const NavLi = styled.li`
   }
 
   &:nth-child(2) {
-    border: 1px solid black;
+    border: 1px solid #36465E;
     border-radius: 25px;
     height: 40px;
     width: 120px;

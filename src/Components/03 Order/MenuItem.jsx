@@ -27,7 +27,7 @@ const MenuItem = (props) => {
       setItemWidth('325px');
       setItemHeight('125px');
       setDescFont('11px');
-      setNameFont('13px');
+      setNameFont('12px');
       setMargin('5px');
     } else if (width <= 450) {
       setItemWidth('370px');

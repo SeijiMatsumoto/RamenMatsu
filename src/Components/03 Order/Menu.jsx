@@ -15,21 +15,22 @@ const Menu = (props) => {
     resize();
   }, [])
 
-  // useEffect(() => {
-  //   setRamenData(props.ramen);
-  // }, [props.ramen])
+  useEffect(() => {
+    setRamenData(props.ramen);
+  }, [props.ramen])
 
-  // useEffect(() => {
-  //   if (props.sets) {
-  //     setSetsData(props.sets);
-  //   }
-  // }, [props.sets])
+  useEffect(() => {
+    if (props.sets) {
+      setSetsData(props.sets);
+    }
+  }, [props.sets])
 
-  // useEffect(() => {
-  //   if (props.drinks) {
-  //     setDrinksData(props.drinks);
-  //   }
-  // }, [props.drinks])
+  useEffect(() => {
+    if (props.drinks) {
+      setDrinksData(props.drinks);
+    }
+  }, [props.drinks])
+
 
   const resize = () => {
     var width = window.innerWidth;
@@ -38,7 +39,6 @@ const Menu = (props) => {
       setJustify('center');
     } else {
       setJustify('flex-start');
-
     }
   }
 

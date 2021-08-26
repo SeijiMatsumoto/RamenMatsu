@@ -36,11 +36,11 @@ const getRamen = async (callback) => {
         })
         menu.items = result
       })
-      .then(() => {
-        getImageLink(imageIds, (result) => {
-          menu.images = result;
-        });
-      })
+      // .then(() => {
+      //   getImageLink(imageIds, (result) => {
+      //     menu.images = result;
+      //   });
+      // })
       .then(() => {
         // console.log(menu.images);
         menu = JSON.stringify(menu, (_, v) => typeof v === 'bigint' ? v.toString() : v)
@@ -83,11 +83,11 @@ const getSets = async (callback) => {
       })
       menu.items = result;
     })
-    .then(() => {
-      getImageLink(imageIds, (result) => {
-        menu.images = result;
-      });
-    })
+    // .then(() => {
+    //   getImageLink(imageIds, (result) => {
+    //     menu.images = result;
+    //   });
+    // })
     .then(() => {
       menu = JSON.stringify(menu, (_, v) => typeof v === 'bigint' ? v.toString() : v)
       callback(menu);
@@ -129,11 +129,11 @@ const getDrinks = async (callback) => {
       })
       menu.items = result;
     })
-    .then(() => {
-      getImageLink(imageIds, (result) => {
-        menu.images = result;
-      });
-    })
+    // .then(() => {
+    //   getImageLink(imageIds, (result) => {
+    //     menu.images = result;
+    //   });
+    // })
     .then(() => {
       menu = JSON.stringify(menu, (_, v) => typeof v === 'bigint' ? v.toString() : v)
       callback(menu);
@@ -175,11 +175,11 @@ const getSpecials = async (callback) => {
       })
       menu.items = result;
     })
-    .then(() => {
-      getImageLink(imageIds, (result) => {
-        menu.images = result;
-      });
-    })
+    // .then(() => {
+    //   getImageLink(imageIds, (result) => {
+    //     menu.images = result;
+    //   });
+    // })
     .then(() => {
       menu = JSON.stringify(menu, (_, v) => typeof v === 'bigint' ? v.toString() : v)
       callback(menu);
@@ -205,22 +205,22 @@ const getCatalogObjects = async (ids) => {
   }
 }
 
-const getImageLink = async (ids, callback) => {
-  var output = {}
-  var names = ids.filter((index, i) => i % 2 !== 0);
-  ids = ids.filter((index, i) => i % 2 === 0);
-  await ids.forEach(async (id, i) => {
-    try {
-      const response = await catalogApi.retrieveCatalogObject(id);
-      var result = response.result.object.imageData.url;
-      output[names[i]] = result;
-      // console.log(output);
-      callback(output);
-    } catch (error) {
-      console.log('error');
-    }
-  })
-  return output;
-}
+// const getImageLink = async (ids, callback) => {
+//   var output = {}
+//   var names = ids.filter((index, i) => i % 2 !== 0);
+//   ids = ids.filter((index, i) => i % 2 === 0);
+//   await ids.forEach(async (id, i) => {
+//     try {
+//       const response = await catalogApi.retrieveCatalogObject(id);
+//       var result = response.result.object.imageData.url;
+//       output[names[i]] = result;
+//       // console.log(output);
+//       callback(output);
+//     } catch (error) {
+//       console.log('error');
+//     }
+//   })
+//   return output;
+// }
 
 module.exports = { getRamen, getSets, getDrinks, getSpecials }

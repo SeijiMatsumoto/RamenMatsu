@@ -18,9 +18,9 @@ export const NavCartContainer = styled.div`
 
 export const CloseBtn = styled.div`
   position: absolute;
-  top: 43px;
-  right: 45px;
-  font-size: 20px;
+  top: 30px;
+  right: 40px;
+  font-size: 30px;
   cursor: pointer;
   color: black;
   z-index: 11;
