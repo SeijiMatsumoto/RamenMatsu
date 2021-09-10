@@ -1,14 +1,14 @@
 # Ramen Matsu
 
-## Website [![Netlify Status](https://api.netlify.com/api/v1/badges/d6bb904c-2349-4778-a184-ff9ce7979dbb/deploy-status)](https://app.netlify.com/sites/ramenmatsu/deploys)
+## [Deployed Link](https://ramenmatsu.netlify.app) [![Netlify Status](https://api.netlify.com/api/v1/badges/d6bb904c-2349-4778-a184-ff9ce7979dbb/deploy-status)](https://app.netlify.com/sites/ramenmatsu/deploys)
 A website for a ramen restaurant called Ramen Matsu.
-View the current state of this project at: [https://ramenmatsu.netlify.app](https://ramenmatsu.netlify.app)
-![](https://i.imgur.com/kVP5LGh.png)
-
-![](https://i.imgur.com/k7G7nmg.png)
 
 ## Summary
 The original website for Ramen Matsu was built with Square's website builder, which featured a different modules you can place onto the page. After setting it up and maintaining it for the past year, I found it to be very limited in capability and had small issues that I wish were customizable. My solution was to build my own website from scratch - following my vision of what the website should actually look like.
+
+![](https://i.imgur.com/kVP5LGh.png)
+
+![](https://i.imgur.com/k7G7nmg.png)
 
 ## Features
 * Home page with general information and an order page
